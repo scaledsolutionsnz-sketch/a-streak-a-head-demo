@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Streak A Head — Hair Salon Invercargill</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #0f0d12;
+      --primary-light: #1a1720;
+      --accent: #c2185b;
+      --accent-light: #e91e8c;
+      --accent-soft: rgba(194,24,91,0.12);
+      --cream: #fdf8fb;
+      --off-white: #faf7f9;
+      --text: #0f0d12;
+      --text-muted: #6b5f6a;
+      --border: rgba(194,24,91,0.18);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--off-white); color: var(--text); line-height: 1.7; }
+    h1, h2, h3 { font-family: 'Raleway', sans-serif; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 0;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    nav.scrolled {
+      background: rgba(15,13,18,0.96);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 2px 24px rgba(0,0,0,0.35);
+    }
+    .nav-logo {
+      padding: 1rem 1.25rem;
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.1rem; font-weight: 900;
+      color: #fff; text-decoration: none; letter-spacing: -0.01em;
+    }
+    .nav-logo span { color: var(--accent-light); }
+    .nav-links { display: flex; align-items: center; gap: 2rem; padding: 0 1.25rem; }
+    .nav-links a { color: rgba(255,255,255,0.72); text-decoration: none; font-size: 0.84rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent-light); }
+    .nav-cta {
+      padding: 0.52rem 1.25rem;
+      background: var(--accent); color: #fff;
+      border-radius: 50px; font-size: 0.82rem; font-weight: 600;
+      text-decoration: none; transition: background 0.2s, transform 0.15s;
+    }
+    .nav-cta:hover { background: var(--accent-light); transform: translateY(-1px); }
+    @media (max-width: 768px) { .nav-links { display: none; } }
+
+    /* HERO */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1800&q=85');
+      background-size: cover; background-position: center;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(110deg, rgba(15,13,18,0.92) 0%, rgba(15,13,18,0.65) 55%, rgba(15,13,18,0.35) 100%);
+    }
+    .hero-content {
+      position: relative; max-width: 1100px; margin: 0 auto;
+      padding: 8rem 2rem 4rem; width: 100%;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.35rem 1rem;
+      background: rgba(194,24,91,0.18); border: 1px solid rgba(194,24,91,0.4);
+      border-radius: 50px; font-size: 0.75rem; font-weight: 700;
+      color: var(--accent-light); text-transform: uppercase; letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-size: clamp(3rem, 7.5vw, 6rem); font-weight: 900;
+      color: #fff; line-height: 1.0; letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 span { color: var(--accent-light); }
+    .hero p {
+      font-size: 1.1rem; color: rgba(255,255,255,0.7);
+      max-width: 480px; line-height: 1.75; margin-bottom: 2.5rem; font-weight: 300;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.9rem 2rem; background: var(--accent); color: #fff;
+      border-radius: 50px; font-weight: 700; font-size: 0.9rem;
+      text-decoration: none; transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+    .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(194,24,91,0.45); }
+    .btn-outline {
+      display: inline-flex; align-items: center;
+      padding: 0.9rem 2rem; border: 1.5px solid rgba(255,255,255,0.35); color: #fff;
+      border-radius: 50px; font-weight: 500; font-size: 0.9rem;
+      text-decoration: none; transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--accent-light); background: rgba(194,24,91,0.1); }
+    .hero-scroll {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      color: rgba(255,255,255,0.3); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(194,24,91,0.7), transparent); animation: sp 2s ease-in-out infinite; }
+    @keyframes sp { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    /* SECTIONS */
+    section { padding: 6rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-tag { display: inline-block; font-size: 0.73rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 0.75rem; }
+    .section-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; line-height: 1.1; letter-spacing: -0.025em; margin-bottom: 1rem; }
+    .section-sub { font-size: 0.96rem; color: var(--text-muted); max-width: 480px; line-height: 1.7; }
+
+    /* ABOUT */
+    .about { background: var(--off-white); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .about-img { border-radius: 24px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.15); position: relative; }
+    .about-img img { width: 100%; height: 500px; object-fit: cover; display: block; }
+    .about-badge {
+      position: absolute; bottom: 1.5rem; left: 1.5rem;
+      background: var(--accent); color: #fff;
+      padding: 0.8rem 1.25rem; border-radius: 14px;
+      font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 0.88rem;
+    }
+    .about-badge span { display: block; font-size: 1.6rem; font-weight: 900; }
+    .about-text p { color: var(--text-muted); margin-bottom: 1.2rem; font-size: 0.96rem; }
+    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+    .stat-card { padding: 1.2rem; background: var(--cream); border: 1px solid var(--border); border-radius: 14px; }
+    .stat-card .num { font-family: 'Raleway', sans-serif; font-size: 1.9rem; font-weight: 900; color: var(--accent); line-height: 1; }
+    .stat-card .lbl { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.2rem; }
+    @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+    /* SERVICES */
+    .services-section { background: var(--primary); }
+    .services-section .section-title { color: #fff; }
+    .services-section .section-tag { color: var(--accent-light); }
+    .services-section .section-sub { color: rgba(255,255,255,0.5); }
+    .services-header { text-align: center; margin-bottom: 3.5rem; }
+    .services-header .section-sub { margin: 0 auto; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+    .service-card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(194,24,91,0.2);
+      border-radius: 20px; padding: 2rem 1.75rem;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+    .service-card:hover { transform: translateY(-4px); background: rgba(194,24,91,0.08); box-shadow: 0 16px 40px rgba(0,0,0,0.2); }
+    .service-icon { width: 52px; height: 52px; background: rgba(194,24,91,0.15); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.25rem; }
+    .service-card h3 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+    .service-card p { font-size: 0.86rem; color: rgba(255,255,255,0.5); line-height: 1.65; }
+
+    /* GALLERY */
+    .gallery-section { background: var(--cream); }
+    .gallery-header { margin-bottom: 2.5rem; }
+    .gallery-grid {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 260px 260px; gap: 10px;
+      border-radius: 24px; overflow: hidden;
+    }
+    .g-tall { grid-row: 1 / 3; }
+    .gallery-item { overflow: hidden; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
+    .gallery-item:hover img { transform: scale(1.06); }
+    @media (max-width: 768px) { .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; } .g-tall { grid-row: auto; } }
+
+    /* REVIEWS */
+    .reviews-section { background: var(--off-white); }
+    .reviews-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 3rem; flex-wrap: wrap; gap: 1.5rem; }
+    .rating-big { font-family: 'Raleway', sans-serif; font-size: 4rem; font-weight: 900; color: var(--text); line-height: 1; }
+    .rating-right .stars { color: #f59e0b; font-size: 1.3rem; letter-spacing: 2px; }
+    .rating-right p { font-size: 0.79rem; color: var(--text-muted); margin-top: 0.25rem; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+    .review-card { background: #fff; border: 1px solid var(--border); border-radius: 20px; padding: 1.75rem; transition: box-shadow 0.2s; }
+    .review-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+    .review-stars { color: #f59e0b; font-size: 0.9rem; margin-bottom: 0.9rem; }
+    .review-text { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1.25rem; font-style: italic; }
+    .review-author { display: flex; align-items: center; gap: 0.75rem; }
+    .review-avatar { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 0.85rem; color: #fff; background: var(--accent); flex-shrink: 0; }
+    .review-name { font-weight: 600; font-size: 0.87rem; }
+    .review-date { font-size: 0.74rem; color: var(--text-muted); }
+    .reviews-cta { text-align: center; margin-top: 2.5rem; }
+    .btn-review { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem; background: var(--accent); color: #fff; border-radius: 50px; font-weight: 700; font-size: 0.88rem; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+    .btn-review:hover { background: var(--accent-light); transform: translateY(-2px); }
+
+    /* CONTACT */
+    .contact-section { background: var(--primary-light); }
+    .contact-section .section-title { color: #fff; }
+    .contact-section .section-tag { color: var(--accent-light); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start; }
+    .contact-info p { color: rgba(255,255,255,0.56); font-size: 0.95rem; margin: 1rem 0 2rem; line-height: 1.7; }
+    .contact-detail { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1.1rem; color: rgba(255,255,255,0.78); font-size: 0.9rem; }
+    .contact-detail-icon { width: 38px; height: 38px; background: rgba(194,24,91,0.15); border: 1px solid rgba(194,24,91,0.3); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+    .contact-form-wrap { background: rgba(255,255,255,0.04); border: 1px solid rgba(194,24,91,0.2); border-radius: 22px; padding: 2.5rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .form-group { margin-bottom: 1rem; }
+    label { display: block; font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.4rem; }
+    input, select, textarea { width: 100%; padding: 0.78rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(194,24,91,0.22); border-radius: 10px; color: #fff; font-size: 0.9rem; font-family: 'Inter', sans-serif; outline: none; appearance: none; transition: border-color 0.2s, background 0.2s; }
+    input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.28); }
+    select option { background: var(--primary); }
+    input:focus, select:focus, textarea:focus { border-color: var(--accent-light); background: rgba(194,24,91,0.06); }
+    textarea { min-height: 110px; resize: vertical; }
+    .form-submit { width: 100%; padding: 0.95rem; background: var(--accent); color: #fff; border: none; border-radius: 50px; font-size: 0.92rem; font-weight: 700; font-family: 'Inter', sans-serif; cursor: pointer; transition: background 0.2s, transform 0.15s; margin-top: 0.5rem; }
+    .form-submit:hover { background: var(--accent-light); transform: translateY(-1px); }
+    @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; gap: 3rem; } }
+    @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+
+    /* FOOTER */
+    footer { background: var(--primary); padding: 3rem 2rem; border-top: 1px solid rgba(194,24,91,0.15); }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-logo { font-family: 'Raleway', sans-serif; font-size: 1.05rem; font-weight: 900; color: #fff; }
+    .footer-logo span { color: var(--accent-light); }
+    .footer-links { display: flex; gap: 2rem; }
+    .footer-links a { color: rgba(255,255,255,0.42); text-decoration: none; font-size: 0.83rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--accent-light); }
+    .footer-copy { color: rgba(255,255,255,0.26); font-size: 0.75rem; }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; } .d3 { transition-delay: 0.3s; }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <a href="#" class="nav-logo">A Streak <span>A Head</span></a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact" class="nav-cta">Book Now</a>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-tag">Hair Salon · Invercargill</div>
+      <h1>You're <span>One Step</span><br />Ahead</h1>
+      <p>Invercargill's go-to hair salon for cuts, colour, and style that turns heads. At A Streak A Head, we make sure you walk out feeling like the best version of yourself.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Book an Appointment ↓</a>
+        <a href="#services" class="btn-outline">Our Services</a>
+      </div>
+    </div>
+    <div class="hero-scroll"><div class="scroll-line"></div>Scroll</div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img reveal">
+          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=900&q=80" alt="A Streak A Head hair salon Invercargill" loading="lazy" />
+          <div class="about-badge"><span>4.7★</span>29 Google Reviews</div>
+        </div>
+        <div class="about-text">
+          <span class="section-tag reveal">About Us</span>
+          <h2 class="section-title reveal d1">Invercargill's<br />Favourite Salon</h2>
+          <p class="reveal d2">At A Streak A Head we're passionate about great hair. Our team of experienced stylists stay up-to-date with the latest techniques and trends to deliver results you'll love — every single time.</p>
+          <p class="reveal d2">Whether you're after a fresh cut, a complete colour transformation, or a special occasion blowout, we take the time to understand exactly what you want and make it happen.</p>
+          <div class="about-stats reveal d3">
+            <div class="stat-card"><div class="num">4.7★</div><div class="lbl">Google rating</div></div>
+            <div class="stat-card"><div class="num">29</div><div class="lbl">Happy reviews</div></div>
+            <div class="stat-card"><div class="num">✂️</div><div class="lbl">Expert stylists</div></div>
+            <div class="stat-card"><div class="num">💅</div><div class="lbl">All hair types</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services-section" id="services">
+    <div class="container">
+      <div class="services-header">
+        <span class="section-tag reveal">Our Services</span>
+        <h2 class="section-title reveal d1">Everything Your<br />Hair Deserves</h2>
+        <p class="section-sub reveal d2">From everyday cuts to full colour transformations — we do it all, and we do it well.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-icon">✂️</div>
+          <h3>Cuts & Styling</h3>
+          <p>Precision cuts tailored to your face shape, lifestyle, and personality. Walk out with a style that works for you every day.</p>
+        </div>
+        <div class="service-card reveal d1">
+          <div class="service-icon">🎨</div>
+          <h3>Colour & Highlights</h3>
+          <p>From subtle highlights to bold, full-colour transformations — our colourists bring your vision to life with expert technique.</p>
+        </div>
+        <div class="service-card reveal d2">
+          <div class="service-icon">✨</div>
+          <h3>Streaks & Balayage</h3>
+          <p>Our signature service. Natural-looking streaks and balayage that blend seamlessly and grow out beautifully.</p>
+        </div>
+        <div class="service-card reveal d1">
+          <div class="service-icon">💆</div>
+          <h3>Treatments</h3>
+          <p>Nourishing hair treatments to restore shine, strength, and softness — your hair will thank you.</p>
+        </div>
+        <div class="service-card reveal d2">
+          <div class="service-icon">💍</div>
+          <h3>Bridal & Special Occasions</h3>
+          <p>Look stunning on your big day. We create flawless updos, curls, and styles built to last from ceremony to dance floor.</p>
+        </div>
+        <div class="service-card reveal d3">
+          <div class="service-icon">💨</div>
+          <h3>Blowouts & Finishing</h3>
+          <p>A professional blowout that gives your hair volume, shine, and that fresh-from-the-salon feeling all day long.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+      <div class="gallery-header">
+        <span class="section-tag reveal">Gallery</span>
+        <h2 class="section-title reveal d1">Our Work Speaks<br />For Itself</h2>
+        <p class="section-sub reveal d2">Real results from real clients at A Streak A Head.</p>
+      </div>
+      <div class="gallery-grid reveal d1">
+        <div class="gallery-item g-tall">
+          <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=800&q=80" alt="Hair colour salon" loading="lazy" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1582095133179-bfd08e2fb6b8?w=700&q=80" alt="Hair styling" loading="lazy" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=700&q=80" alt="Salon blowout" loading="lazy" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=700&q=80" alt="Hair highlights" loading="lazy" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=700&q=80" alt="Balayage hair" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews-section" id="reviews">
+    <div class="container">
+      <div class="reviews-header">
+        <div>
+          <span class="section-tag reveal">Google Reviews</span>
+          <h2 class="section-title reveal d1">Loved by Locals</h2>
+        </div>
+        <div class="reveal d2" style="display:flex;align-items:center;gap:1rem;">
+          <div class="rating-big">4.7</div>
+          <div class="rating-right">
+            <div class="stars">★★★★★</div>
+            <p>29 Google Reviews</p>
+          </div>
+        </div>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card reveal">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Absolutely love this salon! Leanne is so talented — she nailed exactly the colour I wanted. The whole experience was relaxed and professional. I won't go anywhere else in Invercargill."</p>
+          <div class="review-author">
+            <div class="review-avatar">SM</div>
+            <div><div class="review-name">Sarah M.</div><div class="review-date">2 weeks ago</div></div>
+          </div>
+        </div>
+        <div class="review-card reveal d1">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Best balayage I've ever had — and I've been to salons all over the South Island. The team at A Streak A Head are genuinely skilled and the salon has such a great vibe."</p>
+          <div class="review-author">
+            <div class="review-avatar">KT</div>
+            <div><div class="review-name">Kate T.</div><div class="review-date">1 month ago</div></div>
+          </div>
+        </div>
+        <div class="review-card reveal d2">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Had my hair done here for my wedding and it was perfect. Held all day, looked incredible in photos, and I felt amazing. Couldn't recommend more highly!"</p>
+          <div class="review-author">
+            <div class="review-avatar">JR</div>
+            <div><div class="review-name">Jessica R.</div><div class="review-date">3 weeks ago</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="reviews-cta reveal">
+        <a href="review.html" class="btn-review">⭐ Leave a Review</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <span class="section-tag reveal">Book Now</span>
+          <h2 class="section-title reveal d1">Ready for Your<br />Best Hair Day?</h2>
+          <p class="reveal d2">Book your appointment at A Streak A Head — fill in the form and we'll be in touch to confirm your time.</p>
+          <div class="reveal d3">
+            <div class="contact-detail"><div class="contact-detail-icon">📍</div><span>Invercargill, Southland</span></div>
+            <div class="contact-detail"><div class="contact-detail-icon">📞</div><span>+64 3 218 2787</span></div>
+            <div class="contact-detail"><div class="contact-detail-icon">✉️</div><span>djwcameron001@gmail.com</span></div>
+          </div>
+        </div>
+        <div class="contact-form-wrap reveal d2">
+          <form action="https://api.staticforms.xyz/submit" method="post">
+            <input type="hidden" name="apiKey" value="sf_768da8d33927e7f4f241d0a6" />
+            <div class="form-row">
+              <div class="form-group"><label>First Name</label><input type="text" name="firstName" placeholder="First name" required /></div>
+              <div class="form-group"><label>Last Name</label><input type="text" name="lastName" placeholder="Last name" required /></div>
+            </div>
+            <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="your@email.com" required /></div>
+            <div class="form-group"><label>Phone</label><input type="tel" name="phone" placeholder="Your phone number" /></div>
+            <div class="form-group">
+              <label>Service</label>
+              <select name="service" required>
+                <option value="" disabled selected>What are you after?</option>
+                <option value="cut">Cut & Style</option>
+                <option value="colour">Colour & Highlights</option>
+                <option value="balayage">Streaks & Balayage</option>
+                <option value="treatment">Hair Treatment</option>
+                <option value="blowout">Blowout & Finish</option>
+                <option value="bridal">Bridal / Special Occasion</option>
+                <option value="other">Other / Unsure</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Message</label><textarea name="message" placeholder="Any extra details — hair type, length, inspo photos welcome…"></textarea></div>
+            <button type="submit" class="form-submit">Book My Appointment →</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">A Streak <span>A Head</span></div>
+      <div class="footer-links">
+        <a href="#about">About</a><a href="#services">Services</a><a href="#gallery">Gallery</a><a href="#contact">Book</a>
+      </div>
+      <div class="footer-copy">© 2025 A Streak A Head, Invercargill</div>
+    </div>
+  </footer>
+
+  <script>
+    const nav=document.getElementById('navbar');
+    window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>60));
+    const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  </script>
+</body>
+</html>

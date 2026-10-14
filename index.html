@@ -63,7 +63,7 @@
     }
     .hero-bg {
       position: absolute; inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1800&q=85');
+      background-image: url('img/hero-salon-1920.webp');
       background-size: cover; background-position: center;
     }
     .hero-overlay {
@@ -163,15 +163,27 @@
     .gallery-section { background: var(--cream); }
     .gallery-header { margin-bottom: 2.5rem; }
     .gallery-grid {
-      display: grid; grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 260px 260px; gap: 10px;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 320px; gap: 10px;
       border-radius: 24px; overflow: hidden;
     }
-    .g-tall { grid-row: 1 / 3; }
     .gallery-item { overflow: hidden; }
     .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
     .gallery-item:hover img { transform: scale(1.06); }
-    @media (max-width: 768px) { .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; } .g-tall { grid-row: auto; } }
+    @media (max-width: 768px) { .gallery-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 240px; } }
+
+    /* PRODUCTS */
+    .products-section { background: #fff; }
+    .products-header { text-align: center; margin-bottom: 3rem; }
+    .products-header .section-sub { margin: 0 auto; }
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; }
+    .product-card { background: var(--cream); border: 1px solid var(--border); border-radius: 18px; padding: 1.6rem 1.5rem; text-align: center; transition: transform 0.2s, box-shadow 0.2s; }
+    .product-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(194,24,91,0.1); }
+    .product-icon { width: 46px; height: 46px; margin: 0 auto 1rem; background: var(--accent-soft); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; }
+    .product-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem; }
+    .product-card p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.6; }
+    .products-note { text-align: center; margin-top: 2rem; }
+    .products-note span { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.75rem 1.5rem; background: var(--accent-soft); border: 1px solid var(--border); border-radius: 50px; font-size: 0.88rem; font-weight: 600; color: var(--accent); }
 
     /* REVIEWS */
     .reviews-section { background: var(--off-white); }
@@ -219,7 +231,7 @@
     .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
     .footer-logo { font-family: 'Raleway', sans-serif; font-size: 1.05rem; font-weight: 900; color: #fff; }
     .footer-logo span { color: var(--accent-light); }
-    .footer-links { display: flex; gap: 2rem; }
+    .footer-links { display: flex; gap: 1.5rem 2rem; flex-wrap: wrap; justify-content: center; }
     .footer-links a { color: rgba(255,255,255,0.42); text-decoration: none; font-size: 0.83rem; transition: color 0.2s; }
     .footer-links a:hover { color: var(--accent-light); }
     .footer-copy { color: rgba(255,255,255,0.26); font-size: 0.75rem; }
@@ -238,8 +250,9 @@
       <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#gallery">Gallery</a>
+      <a href="#products">Products</a>
       <a href="#reviews">Reviews</a>
-      <a href="#contact" class="nav-cta">Book Now</a>
+      <a href="https://apps.kitomba.com/bookings/astreakahead" target="_blank" rel="noopener" class="nav-cta">Book Now</a>
     </div>
   </nav>
 
@@ -251,7 +264,7 @@
       <h1>You're <span>One Step</span><br />Ahead</h1>
       <p>Invercargill's go-to hair salon for cuts, colour, and style that turns heads. At A Streak A Head, we make sure you walk out feeling like the best version of yourself.</p>
       <div class="hero-actions">
-        <a href="#contact" class="btn-primary">Book an Appointment ↓</a>
+        <a href="https://apps.kitomba.com/bookings/astreakahead" target="_blank" rel="noopener" class="btn-primary">Book Online Now</a>
         <a href="#services" class="btn-outline">Our Services</a>
       </div>
     </div>
@@ -262,7 +275,7 @@
     <div class="container">
       <div class="about-grid">
         <div class="about-img reveal">
-          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=900&q=80" alt="A Streak A Head hair salon Invercargill" loading="lazy" />
+          <img src="img/about-salon-1920.webp" width="1920" height="1282" alt="A Streak A Head hair salon Invercargill" loading="lazy" />
           <div class="about-badge"><span>4.7★</span>29 Google Reviews</div>
         </div>
         <div class="about-text">
@@ -296,13 +309,18 @@
         </div>
         <div class="service-card reveal d1">
           <div class="service-icon">🎨</div>
-          <h3>Colour & Highlights</h3>
-          <p>From subtle highlights to bold, full-colour transformations — our colourists bring your vision to life with expert technique.</p>
+          <h3>Global & Regrowth Colours</h3>
+          <p>From rich all-over global colour to regrowth touch-ups that keep your colour looking fresh between visits.</p>
         </div>
         <div class="service-card reveal d2">
           <div class="service-icon">✨</div>
-          <h3>Streaks & Balayage</h3>
-          <p>Our signature service. Natural-looking streaks and balayage that blend seamlessly and grow out beautifully.</p>
+          <h3>Blonde Work</h3>
+          <p>Our signature service. All things blonde, including streaks, highlights and balayage on scalp, blended to grow out beautifully.</p>
+        </div>
+        <div class="service-card reveal d3">
+          <div class="service-icon">🌀</div>
+          <h3>Perms & Straightening</h3>
+          <p>Perms and chemical straightening, including Argila, a non permanent hair relaxer for smoother, easier-to-manage hair.</p>
         </div>
         <div class="service-card reveal d1">
           <div class="service-icon">💆</div>
@@ -331,21 +349,70 @@
         <p class="section-sub reveal d2">Real results from real clients at A Streak A Head.</p>
       </div>
       <div class="gallery-grid reveal d1">
-        <div class="gallery-item g-tall">
-          <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=800&q=80" alt="Hair colour salon" loading="lazy" />
+        <div class="gallery-item">
+          <img src="img/blonde-balayage-waves-1080.webp" srcset="img/blonde-balayage-waves-1080.webp 810w, img/blonde-balayage-waves-1920.webp 1440w" sizes="(max-width: 768px) 50vw, 25vw" width="810" height="1080" alt="Soft blonde balayage with loose waves, done in the salon" loading="lazy" />
         </div>
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1582095133179-bfd08e2fb6b8?w=700&q=80" alt="Hair styling" loading="lazy" />
+          <img src="img/long-balayage-back-1080.webp" srcset="img/long-balayage-back-1080.webp 810w, img/long-balayage-back-1920.webp 1440w" sizes="(max-width: 768px) 50vw, 25vw" width="810" height="1080" alt="Long bronde balayage with waves, back view" loading="lazy" />
         </div>
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=700&q=80" alt="Salon blowout" loading="lazy" />
+          <img src="img/blonde-balayage-length-1080.webp" srcset="img/blonde-balayage-length-1080.webp 810w, img/blonde-balayage-length-1920.webp 1440w" sizes="(max-width: 768px) 50vw, 25vw" width="810" height="1080" alt="Blonde balayage through long lengths" loading="lazy" />
         </div>
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=700&q=80" alt="Hair highlights" loading="lazy" />
+          <img src="img/fresh-perm-curls-1080.webp" srcset="img/fresh-perm-curls-1080.webp 810w, img/fresh-perm-curls-1920.webp 1440w" sizes="(max-width: 768px) 50vw, 25vw" width="810" height="1080" alt="Fresh perm with defined curls" loading="lazy" />
         </div>
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=700&q=80" alt="Balayage hair" loading="lazy" />
+          <img src="img/platinum-pixie-cut-1080.webp" srcset="img/platinum-pixie-cut-1080.webp 810w, img/platinum-pixie-cut-1920.webp 1440w" sizes="(max-width: 768px) 50vw, 25vw" width="810" height="1080" alt="Platinum pixie cut, styled in the salon" loading="lazy" />
         </div>
+        <div class="gallery-item">
+          <img src="img/white-crop-style-1080.webp" srcset="img/white-crop-style-1080.webp 810w, img/white-crop-style-1920.webp 1440w" sizes="(max-width: 768px) 50vw, 25vw" width="810" height="1080" alt="Short white hair cut and styled" loading="lazy" />
+        </div>
+        <div class="gallery-item">
+          <img src="img/silver-short-style-1080.webp" srcset="img/silver-short-style-1080.webp 810w, img/silver-short-style-1920.webp 1440w" sizes="(max-width: 768px) 50vw, 25vw" width="810" height="1080" alt="Silver short style, side profile" loading="lazy" />
+        </div>
+        <div class="gallery-item">
+          <img src="img/smoothing-in-progress-1080.webp" srcset="img/smoothing-in-progress-1080.webp 810w, img/smoothing-in-progress-1920.webp 1440w" sizes="(max-width: 768px) 50vw, 25vw" width="810" height="1080" alt="Smoothing service in progress at the salon" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="products-section" id="products">
+    <div class="container">
+      <div class="products-header">
+        <span class="section-tag reveal">In the Salon</span>
+        <h2 class="section-title reveal d1">Products We Love<br />& Stock in Salon</h2>
+        <p class="section-sub reveal d2">Salon-quality haircare you can take home, available right here in the salon.</p>
+      </div>
+      <div class="products-grid">
+        <div class="product-card reveal">
+          <div class="product-icon">🧴</div>
+          <h3>De Lorenzo</h3>
+          <p>The full De Lorenzo range.</p>
+        </div>
+        <div class="product-card reveal d1">
+          <div class="product-icon">🎀</div>
+          <h3>Pastel Collective</h3>
+          <p>The Pastel Collective range.</p>
+        </div>
+        <div class="product-card reveal d2">
+          <div class="product-icon">💧</div>
+          <h3>I.N.O Repair</h3>
+          <p>The I.N.O repair range.</p>
+        </div>
+        <div class="product-card reveal d1">
+          <div class="product-icon">🚿</div>
+          <h3>Filter Beauty</h3>
+          <p>Filter Beauty shower filters.</p>
+        </div>
+        <div class="product-card reveal d2">
+          <div class="product-icon">🌀</div>
+          <h3>Clever Curl</h3>
+          <p>The Clever Curl range.</p>
+        </div>
+      </div>
+      <div class="products-note reveal d3">
+        <span>♻️ Bottle refills available with 15% off</span>
       </div>
     </div>
   </section>
@@ -403,11 +470,12 @@
         <div class="contact-info">
           <span class="section-tag reveal">Book Now</span>
           <h2 class="section-title reveal d1">Ready for Your<br />Best Hair Day?</h2>
-          <p class="reveal d2">Book your appointment at A Streak A Head — fill in the form and we'll be in touch to confirm your time.</p>
+          <p class="reveal d2">Book online in seconds, or fill in the form and we'll be in touch to confirm your time.</p>
           <div class="reveal d3">
-            <div class="contact-detail"><div class="contact-detail-icon">📍</div><span>Invercargill, Southland</span></div>
+            <div class="contact-detail"><div class="contact-detail-icon">📍</div><span>448B Dee Street, Gladstone, Invercargill</span></div>
             <div class="contact-detail"><div class="contact-detail-icon">📞</div><span>+64 3 218 2787</span></div>
             <div class="contact-detail"><div class="contact-detail-icon">✉️</div><span>djwcameron001@gmail.com</span></div>
+            <div class="contact-detail"><div class="contact-detail-icon">📅</div><span><a href="https://apps.kitomba.com/bookings/astreakahead" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline;text-underline-offset:3px;">Book online now</a></span></div>
           </div>
         </div>
         <div class="contact-form-wrap reveal d2">
@@ -424,8 +492,9 @@
               <select name="service" required>
                 <option value="" disabled selected>What are you after?</option>
                 <option value="cut">Cut & Style</option>
-                <option value="colour">Colour & Highlights</option>
-                <option value="balayage">Streaks & Balayage</option>
+                <option value="colour">Global & Regrowth Colours</option>
+                <option value="blonde">Blonde Work (Streaks, Highlights & Balayage)</option>
+                <option value="perm">Perm / Chemical Straightening</option>
                 <option value="treatment">Hair Treatment</option>
                 <option value="blowout">Blowout & Finish</option>
                 <option value="bridal">Bridal / Special Occasion</option>
@@ -444,9 +513,9 @@
     <div class="footer-inner">
       <div class="footer-logo">A Streak <span>A Head</span></div>
       <div class="footer-links">
-        <a href="#about">About</a><a href="#services">Services</a><a href="#gallery">Gallery</a><a href="#contact">Book</a>
+        <a href="#about">About</a><a href="#services">Services</a><a href="#gallery">Gallery</a><a href="#products">Products</a><a href="https://apps.kitomba.com/bookings/astreakahead" target="_blank" rel="noopener">Book</a>
       </div>
-      <div class="footer-copy">© 2025 A Streak A Head, Invercargill</div>
+      <div class="footer-copy">© 2025 A Streak A Head, 448B Dee Street, Gladstone, Invercargill</div>
     </div>
   </footer>
 

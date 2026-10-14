@@ -1,529 +1,854 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-NZ">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>A Streak A Head — Hair Salon Invercargill</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --primary: #0f0d12;
-      --primary-light: #1a1720;
-      --accent: #c2185b;
-      --accent-light: #e91e8c;
-      --accent-soft: rgba(194,24,91,0.12);
-      --cream: #fdf8fb;
-      --off-white: #faf7f9;
-      --text: #0f0d12;
-      --text-muted: #6b5f6a;
-      --border: rgba(194,24,91,0.18);
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: var(--off-white); color: var(--text); line-height: 1.7; }
-    h1, h2, h3 { font-family: 'Raleway', sans-serif; }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Streak A Head | Hair Salon, Invercargill</title>
+<meta name="description" content="Hair salon at 448B Dee Street, Gladstone, Invercargill. Blonde work, colour, cuts, perms and Argila smoothing since 1996. Book online any time or call 03 218 2787.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://a-streak-a-head-demo.vercel.app/">
+<meta property="og:title" content="A Streak A Head | Hair Salon, Invercargill">
+<meta property="og:description" content="Blonde work, colour and cuts at 448B Dee Street, Gladstone, Invercargill. Doing Invercargill's hair since 1996.">
+<meta property="og:image" content="https://a-streak-a-head-demo.vercel.app/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1c1a17">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{
+  --accent:#fde93a;      /* the one accent: the yellow streak from their logo */
+  --accent-ink:#6b5c00;  /* the same yellow, deepened for text on light backgrounds */
+  --star:#e3bf0c;
+  --tint:#fbf3c4;
+  --bg:#fbf9f4;
+  --bone:#f2ede3;
+  --ink:#1c1a17;         /* dark anchor, the black of their logo */
+  --ink-2:#131210;
+  --muted:#5d5850;
+  --line:#e3dccd;
+  --on-dark:#d9d3c7;
+  --r:24px;
+  --display:'Fraunces', Georgia, serif;
+  --body:'Karla', Arial, sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--body);font-size:17px;line-height:1.6;color:var(--ink);background:var(--bg);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block;image-orientation:from-image}
+main img:not(.logo-img){filter:saturate(.85) contrast(1.05)}
+a{color:var(--accent-ink)}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.1;margin:0 0 .5em;letter-spacing:-.015em}
+h2{font-size:clamp(2rem,5vw,3rem)}
+h3{font-size:1.3rem}
+p{margin:0 0 1em}
+.wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+section{padding:72px 0;position:relative;scroll-margin-top:72px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);background:var(--tint);padding:6px 14px;border-radius:99px;margin-bottom:16px}
+.section-head{max-width:640px;margin-bottom:40px}
+.section-head.center{margin-left:auto;margin-right:auto;text-align:center;max-width:760px}
+.section-head p{color:var(--muted);font-size:1.08rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:12px 26px;border-radius:99px;font-family:var(--body);font-weight:700;font-size:1.02rem;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .25s cubic-bezier(.34,1.56,.64,1),background .2s,color .2s,border-color .2s,box-shadow .25s;text-align:center}
+.btn:hover{transform:translateY(-3px)}
+.btn-primary{background:var(--accent);color:var(--ink);box-shadow:0 12px 24px -12px rgba(160,140,0,.75)}
+.btn-primary:hover{background:#fff27a}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:#3a3631}
+.btn-soft{background:#fff;color:var(--ink);border-color:var(--line)}
+.btn-soft:hover{border-color:var(--ink)}
+.btn-outline-light{border-color:rgba(255,255,255,.55);color:#fff}
+.btn-outline-light:hover{background:#fff;color:var(--ink)}
+.btn svg{width:20px;height:20px;flex:none}
+.icon{width:24px;height:24px;flex:none}
+:focus-visible{outline:3px solid var(--accent-ink);outline-offset:3px;border-radius:6px}
+.contact :focus-visible,.hero :focus-visible,.leave :focus-visible,.footer :focus-visible{outline-color:var(--accent)}
+.wiggle{animation:wiggle 5s ease-in-out 2.5s infinite}
+@keyframes wiggle{0%,86%,100%{transform:rotate(0)}88%{transform:rotate(-3deg) scale(1.03)}90%{transform:rotate(3deg) scale(1.03)}92%{transform:rotate(-2deg)}94%{transform:rotate(1deg)}96%{transform:rotate(0)}}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-    /* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 0;
-      display: flex; align-items: center; justify-content: space-between;
-      transition: background 0.3s, box-shadow 0.3s;
-    }
-    nav.scrolled {
-      background: rgba(15,13,18,0.96);
-      backdrop-filter: blur(14px);
-      box-shadow: 0 2px 24px rgba(0,0,0,0.35);
-    }
-    .nav-logo {
-      padding: 1rem 1.25rem;
-      font-family: 'Raleway', sans-serif;
-      font-size: 1.1rem; font-weight: 900;
-      color: #fff; text-decoration: none; letter-spacing: -0.01em;
-    }
-    .nav-logo span { color: var(--accent-light); }
-    .nav-links { display: flex; align-items: center; gap: 2rem; padding: 0 1.25rem; }
-    .nav-links a { color: rgba(255,255,255,0.72); text-decoration: none; font-size: 0.84rem; font-weight: 500; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--accent-light); }
-    .nav-cta {
-      padding: 0.52rem 1.25rem;
-      background: var(--accent); color: #fff;
-      border-radius: 50px; font-size: 0.82rem; font-weight: 600;
-      text-decoration: none; transition: background 0.2s, transform 0.15s;
-    }
-    .nav-cta:hover { background: var(--accent-light); transform: translateY(-1px); }
-    @media (max-width: 768px) { .nav-links { display: none; } }
+/* wave dividers */
+.wave{position:relative;height:56px;overflow:hidden;line-height:0;margin-top:-1px}
+.wave svg{position:absolute;bottom:0;left:0;width:200%;height:100%;animation:drift 20s linear infinite}
+.wave svg.back{opacity:.45;animation-duration:28s;animation-direction:reverse}
+@keyframes drift{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-    /* HERO */
-    .hero {
-      position: relative; min-height: 100vh;
-      display: flex; align-items: center; overflow: hidden;
-    }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background-image: url('img/hero-salon-1920.webp');
-      background-size: cover; background-position: center;
-    }
-    .hero-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(110deg, rgba(15,13,18,0.92) 0%, rgba(15,13,18,0.65) 55%, rgba(15,13,18,0.35) 100%);
-    }
-    .hero-content {
-      position: relative; max-width: 1100px; margin: 0 auto;
-      padding: 8rem 2rem 4rem; width: 100%;
-    }
-    .hero-tag {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.35rem 1rem;
-      background: rgba(194,24,91,0.18); border: 1px solid rgba(194,24,91,0.4);
-      border-radius: 50px; font-size: 0.75rem; font-weight: 700;
-      color: var(--accent-light); text-transform: uppercase; letter-spacing: 0.1em;
-      margin-bottom: 1.5rem;
-    }
-    .hero h1 {
-      font-size: clamp(3rem, 7.5vw, 6rem); font-weight: 900;
-      color: #fff; line-height: 1.0; letter-spacing: -0.03em;
-      margin-bottom: 1.25rem;
-    }
-    .hero h1 span { color: var(--accent-light); }
-    .hero p {
-      font-size: 1.1rem; color: rgba(255,255,255,0.7);
-      max-width: 480px; line-height: 1.75; margin-bottom: 2.5rem; font-weight: 300;
-    }
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.9rem 2rem; background: var(--accent); color: #fff;
-      border-radius: 50px; font-weight: 700; font-size: 0.9rem;
-      text-decoration: none; transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-    }
-    .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(194,24,91,0.45); }
-    .btn-outline {
-      display: inline-flex; align-items: center;
-      padding: 0.9rem 2rem; border: 1.5px solid rgba(255,255,255,0.35); color: #fff;
-      border-radius: 50px; font-weight: 500; font-size: 0.9rem;
-      text-decoration: none; transition: border-color 0.2s, background 0.2s;
-    }
-    .btn-outline:hover { border-color: var(--accent-light); background: rgba(194,24,91,0.1); }
-    .hero-scroll {
-      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
-      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-      color: rgba(255,255,255,0.3); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
-    }
-    .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(194,24,91,0.7), transparent); animation: sp 2s ease-in-out infinite; }
-    @keyframes sp { 0%,100%{opacity:1} 50%{opacity:0.3} }
+/* nav */
+.nav{position:sticky;top:0;z-index:60;background:rgba(251,249,244,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
+.nav.scrolled{border-color:var(--line);box-shadow:0 8px 24px -18px rgba(28,26,23,.45)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:68px}
+.logo{display:flex;align-items:center;flex:0 1 auto;min-width:0;min-height:44px}
+.logo img{width:140px;max-width:100%;height:auto}
+.nav-links{display:none;position:absolute;top:68px;left:12px;right:12px;flex-direction:column;list-style:none;margin:0;padding:10px;background:#fff;border-radius:var(--r);box-shadow:0 20px 40px -16px rgba(28,26,23,.4)}
+.nav-links.open{display:flex}
+.nav-links a{display:flex;align-items:center;min-height:48px;padding:10px 16px;color:var(--ink);text-decoration:none;font-weight:600;border-radius:14px}
+.nav-links a:hover{background:var(--bone)}
+.nav-right{display:flex;align-items:center;gap:6px}
+.nav .btn{min-height:44px;padding:8px 14px;font-size:.95rem;white-space:nowrap}
+.nav-call{width:44px;padding:0!important}
+.nav-call .label{display:none}
+.burger{display:grid;place-items:center;background:var(--bone);border:0;color:var(--ink);width:44px;height:44px;border-radius:50%;padding:11px;cursor:pointer}
+@media (max-width:399px){.nav .btn-dark{padding:8px 12px}}
+@media (min-width:400px){.logo img{width:150px}.nav-right{gap:8px}.nav .btn{padding:8px 18px}}
+@media (min-width:640px){.nav-call{width:auto;padding:8px 18px!important}.nav-call .label{display:inline}.logo img{width:180px}}
+@media (min-width:1180px){
+  .nav .wrap{min-height:76px}
+  .burger{display:none}
+  .nav-links{display:flex;position:static;flex-direction:row;background:none;box-shadow:none;padding:0;gap:2px}
+  .nav-links a{min-height:44px;padding:8px 12px;border-radius:99px}
+  .logo img{width:200px}
+}
 
-    /* SECTIONS */
-    section { padding: 6rem 2rem; }
-    .container { max-width: 1100px; margin: 0 auto; }
-    .section-tag { display: inline-block; font-size: 0.73rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 0.75rem; }
-    .section-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; line-height: 1.1; letter-spacing: -0.025em; margin-bottom: 1rem; }
-    .section-sub { font-size: 0.96rem; color: var(--text-muted); max-width: 480px; line-height: 1.7; }
+/* hero */
+.hero{background:var(--ink);color:#fff;overflow:hidden;padding:64px 0 88px}
+.hero-media{position:absolute;inset:0;background:var(--ink);overflow:hidden}
+.hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;opacity:0;transform:scale(1.06);transition:opacity 1.4s ease,transform 7s ease}
+.hero-media img.active{opacity:1;transform:scale(1)}
+.hero-media::after{content:"";position:absolute;inset:0;background:rgba(28,26,23,.58)}
+.hero .wrap{position:relative;z-index:2}
+.hero-copy{max-width:640px}
+.hero .eyebrow{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.22)}
+.hero .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.hero h1{font-size:clamp(2.35rem,7.4vw,4.25rem);line-height:1.04;margin-bottom:20px;font-weight:600}
+.hero h1 em{font-style:italic;position:relative;white-space:nowrap}
+.hero h1 em svg{position:absolute;left:-2%;bottom:-.14em;width:104%;height:.34em;color:var(--accent)}
+.hero .lead{font-size:clamp(1.06rem,1.8vw,1.22rem);color:#ece7dc;max-width:540px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 26px}
+.rating{display:inline-flex;align-items:center;gap:14px;padding:12px 18px;border-radius:20px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:#fff;text-decoration:none;line-height:1.3;font-size:.95rem;transition:background .2s}
+.rating:hover{background:rgba(255,255,255,.2)}
+.rating strong{font-family:var(--display);font-size:1.9rem;line-height:1;font-weight:600}
+.stars{display:inline-flex;gap:2px;vertical-align:middle}
+.stars svg{width:18px;height:18px}
+.rating .stars{color:var(--accent)}
+.slide-dots{position:absolute;right:16px;bottom:72px;display:flex;gap:6px;z-index:3}
+.slide-dots i{width:8px;height:8px;border-radius:99px;background:rgba(255,255,255,.5);transition:width .4s,background .4s}
+.slide-dots i.on{width:24px;background:#fff}
+@media (min-width:1000px){
+  .hero{min-height:min(820px,calc(100vh - 76px));display:flex;align-items:center;padding:88px 0 120px}
+  .hero .wrap{width:100%}
+  .hero-media{left:40%}
+  .hero-media::after{background:linear-gradient(90deg,var(--ink) 0%,rgba(28,26,23,.62) 26%,rgba(28,26,23,.45) 60%,rgba(28,26,23,.45) 100%)}
+  .hero-copy{max-width:700px}
+  .slide-dots{right:32px;bottom:92px}
+}
 
-    /* ABOUT */
-    .about { background: var(--off-white); }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-    .about-img { border-radius: 24px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.15); position: relative; }
-    .about-img img { width: 100%; height: 500px; object-fit: cover; display: block; }
-    .about-badge {
-      position: absolute; bottom: 1.5rem; left: 1.5rem;
-      background: var(--accent); color: #fff;
-      padding: 0.8rem 1.25rem; border-radius: 14px;
-      font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 0.88rem;
-    }
-    .about-badge span { display: block; font-size: 1.6rem; font-weight: 900; }
-    .about-text p { color: var(--text-muted); margin-bottom: 1.2rem; font-size: 0.96rem; }
-    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
-    .stat-card { padding: 1.2rem; background: var(--cream); border: 1px solid var(--border); border-radius: 14px; }
-    .stat-card .num { font-family: 'Raleway', sans-serif; font-size: 1.9rem; font-weight: 900; color: var(--accent); line-height: 1; }
-    .stat-card .lbl { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.2rem; }
-    @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+/* trust */
+.trust{padding:24px 0 56px;background:var(--bone)}
+.trust-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.trust-item{display:flex;gap:16px;align-items:flex-start;background:#fff;border-radius:var(--r);padding:22px;border:1px solid var(--line)}
+.trust-item .ic{width:52px;height:52px;border-radius:16px;background:var(--accent);color:var(--ink);display:grid;place-items:center;flex:none}
+.trust-item strong{display:block;font-family:var(--display);font-size:1.2rem;font-weight:600;line-height:1.2;margin-bottom:4px}
+.trust-item span{color:var(--muted);font-size:1rem;display:block}
+@media (min-width:820px){.trust-grid{grid-template-columns:repeat(3,1fr)}}
 
-    /* SERVICES */
-    .services-section { background: var(--primary); }
-    .services-section .section-title { color: #fff; }
-    .services-section .section-tag { color: var(--accent-light); }
-    .services-section .section-sub { color: rgba(255,255,255,0.5); }
-    .services-header { text-align: center; margin-bottom: 3.5rem; }
-    .services-header .section-sub { margin: 0 auto; }
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-    .service-card {
-      background: rgba(255,255,255,0.04); border: 1px solid rgba(194,24,91,0.2);
-      border-radius: 20px; padding: 2rem 1.75rem;
-      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-    }
-    .service-card:hover { transform: translateY(-4px); background: rgba(194,24,91,0.08); box-shadow: 0 16px 40px rgba(0,0,0,0.2); }
-    .service-icon { width: 52px; height: 52px; background: rgba(194,24,91,0.15); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.25rem; }
-    .service-card h3 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
-    .service-card p { font-size: 0.86rem; color: rgba(255,255,255,0.5); line-height: 1.65; }
+/* services bento */
+.services{background:var(--bg)}
+.bento{display:grid;grid-template-columns:1fr;gap:18px}
+.svc{position:relative;border-radius:var(--r);overflow:hidden;background:#fff;border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .35s;will-change:transform}
+.svc:hover{box-shadow:0 26px 50px -26px rgba(28,26,23,.5)}
+.svc .img{overflow:hidden;aspect-ratio:4/3;background:var(--bone)}
+.svc .img img{width:100%;height:100%;object-fit:cover;object-position:50% 35%;transition:transform .7s ease}
+.svc:hover .img img{transform:scale(1.06)}
+.svc .body{padding:20px 22px 24px}
+.svc .body p{color:var(--muted);margin:0;font-size:1rem}
+.svc .tag{display:inline-block;font-size:.76rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--accent-ink);background:var(--tint);padding:3px 10px;border-radius:99px;margin-bottom:10px}
+.svc.big{color:#fff;border:0;min-height:460px;background:var(--ink)}
+.svc.big .img{position:absolute;inset:0;aspect-ratio:auto}
+.svc.big .img img{object-position:50% 30%}
+.svc.big::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,26,23,0) 30%,rgba(28,26,23,.88))}
+.svc.big .body{position:relative;z-index:2;margin-top:auto;padding:28px}
+.svc.big h3{font-size:clamp(1.7rem,3vw,2.2rem)}
+.svc.big .body p{color:#f1ece2;font-size:1.06rem;max-width:460px}
+.svc.big .tag{background:var(--accent);color:var(--ink)}
+.svc.accent{background:var(--ink);color:#fff;border:0;justify-content:center}
+.svc.accent .body{padding:30px 26px}
+.svc.accent .body p{color:var(--on-dark)}
+.svc.accent .row{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+@media (min-width:640px){
+  .bento{grid-template-columns:repeat(2,1fr)}
+  .svc.big,.svc.wide,.svc.accent{grid-column:span 2}
+  .svc.wide{flex-direction:row}
+  .svc.wide .img{flex:0 0 46%;aspect-ratio:4/3;align-self:stretch}
+  .svc.wide .body{align-self:center}
+}
+@media (min-width:1040px){
+  .bento{grid-template-columns:repeat(4,1fr)}
+  .svc.big{grid-row:span 2;min-height:560px}
+  .svc.accent{grid-column:span 4}
+  .svc.accent .body{display:flex;align-items:center;justify-content:space-between;gap:28px;width:100%;padding:34px 40px}
+  .svc.accent .row{margin-top:0;flex:none}
+  .svc.accent h3{font-size:1.7rem}
+}
 
-    /* GALLERY */
-    .gallery-section { background: var(--cream); }
-    .gallery-header { margin-bottom: 2.5rem; }
-    .gallery-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      grid-auto-rows: 320px; gap: 10px;
-      border-radius: 24px; overflow: hidden;
-    }
-    .gallery-item { overflow: hidden; }
-    .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
-    .gallery-item:hover img { transform: scale(1.06); }
-    @media (max-width: 768px) { .gallery-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 240px; } }
+/* stats */
+.stats{padding:0 0 72px;background:var(--bg)}
+.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);row-gap:30px;gap:18px;background:var(--ink);color:#fff;border-radius:var(--r);padding:40px 20px;position:relative;overflow:hidden}
+.stats-grid::before{content:"";position:absolute;width:300px;height:110px;background:var(--accent);opacity:.9;right:-90px;top:-40px;clip-path:polygon(0 0,100% 0,50% 100%);transform:rotate(-8deg)}
+.stat{position:relative;text-align:center}
+.stat b{display:block;font-family:var(--display);font-weight:600;font-size:clamp(2.4rem,6vw,3.4rem);line-height:1;color:#fff;margin-bottom:6px}
+.stat span{color:var(--on-dark);font-weight:600;font-size:.98rem;display:block;max-width:220px;margin:0 auto}
+@media (min-width:760px){.stats-grid{grid-template-columns:repeat(4,1fr);padding:44px 32px}}
 
-    /* PRODUCTS */
-    .products-section { background: #fff; }
-    .products-header { text-align: center; margin-bottom: 3rem; }
-    .products-header .section-sub { margin: 0 auto; }
-    .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; }
-    .product-card { background: var(--cream); border: 1px solid var(--border); border-radius: 18px; padding: 1.6rem 1.5rem; text-align: center; transition: transform 0.2s, box-shadow 0.2s; }
-    .product-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(194,24,91,0.1); }
-    .product-icon { width: 46px; height: 46px; margin: 0 auto 1rem; background: var(--accent-soft); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; }
-    .product-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem; }
-    .product-card p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.6; }
-    .products-note { text-align: center; margin-top: 2rem; }
-    .products-note span { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.75rem 1.5rem; background: var(--accent-soft); border: 1px solid var(--border); border-radius: 50px; font-size: 0.88rem; font-weight: 600; color: var(--accent); }
+/* gallery */
+.gallery{background:var(--bone)}
+.masonry{column-count:2;column-gap:14px}
+.masonry figure{margin:0 0 14px;break-inside:avoid}
+.masonry img{width:100%;height:auto;display:block;border-radius:var(--r)}
+@media (min-width:760px){.masonry{column-count:3;column-gap:18px}.masonry figure{margin-bottom:18px}}
+@media (min-width:1100px){.masonry{column-count:4}}
 
-    /* REVIEWS */
-    .reviews-section { background: var(--off-white); }
-    .reviews-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 3rem; flex-wrap: wrap; gap: 1.5rem; }
-    .rating-big { font-family: 'Raleway', sans-serif; font-size: 4rem; font-weight: 900; color: var(--text); line-height: 1; }
-    .rating-right .stars { color: #f59e0b; font-size: 1.3rem; letter-spacing: 2px; }
-    .rating-right p { font-size: 0.79rem; color: var(--text-muted); margin-top: 0.25rem; }
-    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
-    .review-card { background: #fff; border: 1px solid var(--border); border-radius: 20px; padding: 1.75rem; transition: box-shadow 0.2s; }
-    .review-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
-    .review-stars { color: #f59e0b; font-size: 0.9rem; margin-bottom: 0.9rem; }
-    .review-text { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1.25rem; font-style: italic; }
-    .review-author { display: flex; align-items: center; gap: 0.75rem; }
-    .review-avatar { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 0.85rem; color: #fff; background: var(--accent); flex-shrink: 0; }
-    .review-name { font-weight: 600; font-size: 0.87rem; }
-    .review-date { font-size: 0.74rem; color: var(--text-muted); }
-    .reviews-cta { text-align: center; margin-top: 2.5rem; }
-    .btn-review { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem; background: var(--accent); color: #fff; border-radius: 50px; font-weight: 700; font-size: 0.88rem; text-decoration: none; transition: background 0.2s, transform 0.15s; }
-    .btn-review:hover { background: var(--accent-light); transform: translateY(-2px); }
+/* videos */
+.videos{background:var(--bg)}
+.vid-row{display:flex;flex-wrap:wrap;justify-content:center;gap:24px}
+.vid{width:100%;max-width:340px}
+.vid-frame{position:relative;aspect-ratio:9/16;border-radius:var(--r);overflow:hidden;background:var(--ink);box-shadow:0 24px 48px -28px rgba(28,26,23,.6)}
+.vid-frame img,.vid-frame iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+.vid-play{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(180deg,rgba(28,26,23,0) 50%,rgba(28,26,23,.55));border:0;cursor:pointer;padding:0;color:var(--ink)}
+.vid-play .pb{width:76px;height:76px;border-radius:50%;background:var(--accent);display:grid;place-items:center;box-shadow:0 12px 30px -10px rgba(0,0,0,.6);transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.vid-play:hover .pb{transform:scale(1.1)}
+.vid-play .pb svg{width:30px;height:30px;margin-left:4px}
+.vid p{margin:14px 4px 0;color:var(--muted);font-size:1rem}
+.vid p strong{color:var(--ink)}
+.more-link{text-align:center;margin-top:32px}
 
-    /* CONTACT */
-    .contact-section { background: var(--primary-light); }
-    .contact-section .section-title { color: #fff; }
-    .contact-section .section-tag { color: var(--accent-light); }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start; }
-    .contact-info p { color: rgba(255,255,255,0.56); font-size: 0.95rem; margin: 1rem 0 2rem; line-height: 1.7; }
-    .contact-detail { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1.1rem; color: rgba(255,255,255,0.78); font-size: 0.9rem; }
-    .contact-detail-icon { width: 38px; height: 38px; background: rgba(194,24,91,0.15); border: 1px solid rgba(194,24,91,0.3); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
-    .contact-form-wrap { background: rgba(255,255,255,0.04); border: 1px solid rgba(194,24,91,0.2); border-radius: 22px; padding: 2.5rem; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
-    .form-group { margin-bottom: 1rem; }
-    label { display: block; font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.4rem; }
-    input, select, textarea { width: 100%; padding: 0.78rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(194,24,91,0.22); border-radius: 10px; color: #fff; font-size: 0.9rem; font-family: 'Inter', sans-serif; outline: none; appearance: none; transition: border-color 0.2s, background 0.2s; }
-    input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.28); }
-    select option { background: var(--primary); }
-    input:focus, select:focus, textarea:focus { border-color: var(--accent-light); background: rgba(194,24,91,0.06); }
-    textarea { min-height: 110px; resize: vertical; }
-    .form-submit { width: 100%; padding: 0.95rem; background: var(--accent); color: #fff; border: none; border-radius: 50px; font-size: 0.92rem; font-weight: 700; font-family: 'Inter', sans-serif; cursor: pointer; transition: background 0.2s, transform 0.15s; margin-top: 0.5rem; }
-    .form-submit:hover { background: var(--accent-light); transform: translateY(-1px); }
-    @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; gap: 3rem; } }
-    @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+/* products */
+.products{background:var(--bone)}
+.prod-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.prod{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px 22px;display:flex;gap:16px;align-items:center;transition:transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .35s}
+.prod:hover{transform:translateY(-4px);box-shadow:0 20px 40px -26px rgba(28,26,23,.5)}
+.prod .ic{width:54px;height:54px;border-radius:50%;background:var(--ink);color:var(--accent);display:grid;place-items:center;flex:none}
+.prod h3{font-size:1.2rem;margin:0 0 2px}
+.prod p{margin:0;color:var(--muted);font-size:1rem}
+.refill{display:flex;justify-content:center;margin-top:28px}
+.refill span{display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:#fff;font-weight:700;padding:12px 22px 12px 14px;border-radius:99px;font-size:1.02rem}
+.refill .ic{width:36px;height:36px;border-radius:50%;background:var(--accent);color:var(--ink);display:grid;place-items:center;flex:none}
+.refill .ic svg{width:20px;height:20px}
+@media (min-width:600px){.prod-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1040px){.prod-grid{grid-template-columns:repeat(5,1fr)}.prod{flex-direction:column;text-align:center;padding:30px 18px}}
 
-    /* FOOTER */
-    footer { background: var(--primary); padding: 3rem 2rem; border-top: 1px solid rgba(194,24,91,0.15); }
-    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
-    .footer-logo { font-family: 'Raleway', sans-serif; font-size: 1.05rem; font-weight: 900; color: #fff; }
-    .footer-logo span { color: var(--accent-light); }
-    .footer-links { display: flex; gap: 1.5rem 2rem; flex-wrap: wrap; justify-content: center; }
-    .footer-links a { color: rgba(255,255,255,0.42); text-decoration: none; font-size: 0.83rem; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--accent-light); }
-    .footer-copy { color: rgba(255,255,255,0.26); font-size: 0.75rem; }
+/* photo strip */
+.strip{padding:0 0 72px;background:var(--bone);overflow:hidden}
+.strip-track{display:flex;gap:16px;width:max-content;animation:marquee 45s linear infinite}
+.strip-track img{height:220px;width:auto;border-radius:var(--r);flex:none}
+.strip-track img:nth-child(odd){transform:translateY(14px)}
+.strip:hover .strip-track{animation-play-state:paused}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (min-width:760px){.strip-track img{height:280px}}
 
-    /* REVEAL */
-    .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.65s ease, transform 0.65s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; } .d3 { transition-delay: 0.3s; }
-  </style>
+/* about */
+.about{background:var(--bg)}
+.split{display:grid;grid-template-columns:1fr;gap:48px;align-items:center}
+.collage{position:relative;height:380px}
+.collage img{position:absolute;border-radius:var(--r);object-fit:cover;box-shadow:0 24px 48px -24px rgba(28,26,23,.55);border:6px solid #fff}
+.collage .c1{width:62%;height:78%;left:0;top:0;object-position:50% 40%}
+.collage .c2{width:52%;height:58%;right:0;bottom:2%;object-position:50% 20%}
+.collage .c3{width:34%;height:40%;left:14%;bottom:0;object-position:50% 30%}
+.corner-tag{position:absolute;right:4%;top:6%;background:var(--accent);color:var(--ink);font-weight:700;padding:12px 18px;border-radius:99px;box-shadow:0 12px 24px -10px rgba(120,100,0,.6);transform:rotate(4deg);font-size:.98rem}
+.checklist{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px}
+.checklist li{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);padding:12px 18px;border-radius:99px;font-weight:600;font-size:1rem;line-height:1.35}
+.checklist .ck{width:30px;height:30px;border-radius:50%;background:var(--accent);color:var(--ink);display:grid;place-items:center;flex:none}
+.checklist .ck svg{width:16px;height:16px}
+.about p{font-size:1.06rem}
+@media (min-width:600px){.collage{height:480px}}
+@media (min-width:960px){.split{grid-template-columns:1fr 1fr;gap:64px}.collage{height:540px}}
+
+/* team */
+.team{background:var(--bone)}
+.team-grid{display:grid;grid-template-columns:1fr;gap:20px}
+.team-card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:32px 24px;text-align:center;transition:transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .35s}
+.team-card:hover{transform:translateY(-6px);box-shadow:0 24px 44px -26px rgba(28,26,23,.5)}
+.avatar{width:96px;height:96px;margin:0 auto 18px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:600;font-size:1.9rem;color:#fff;background:var(--ink);box-shadow:0 0 0 5px #fff,0 0 0 8px var(--accent)}
+.team-card .role{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:6px}
+.team-card h3{margin-bottom:10px}
+.team-card p{color:var(--muted);margin:0;font-size:1rem}
+@media (min-width:820px){.team-grid{grid-template-columns:repeat(3,1fr)}}
+
+/* reviews */
+.reviews{background:var(--bg)}
+.rev-summary{display:inline-flex;align-items:center;gap:12px;margin-top:6px;color:var(--muted);font-weight:600}
+.rev-summary strong{font-family:var(--display);font-size:2rem;color:var(--ink);line-height:1}
+.rev-summary .stars{color:var(--star)}
+.reviews-grid{display:grid;grid-template-columns:1fr;gap:20px}
+.review{background:#fff;border-radius:var(--r);padding:28px;display:flex;flex-direction:column;gap:14px;border:1px solid var(--line);position:relative;margin:0}
+.review .quote{position:absolute;right:22px;top:18px;width:42px;height:42px;color:var(--tint)}
+.review .stars{color:var(--star)}
+.review blockquote{margin:0;flex:1;font-size:1.04rem}
+.review footer{display:flex;align-items:center;gap:12px;font-size:.95rem;color:var(--muted)}
+.review footer .mini{width:42px;height:42px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:700;flex:none}
+.review footer strong{color:var(--ink);display:block}
+.center-cta{text-align:center;margin-top:36px}
+@media (min-width:900px){.reviews-grid{grid-template-columns:repeat(3,1fr)}}
+
+/* leave a review banner */
+.leave{background:var(--ink);color:#fff;padding:64px 0;overflow:hidden}
+.leave .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;position:relative}
+.leave h2{margin:0;font-size:clamp(1.7rem,3.6vw,2.4rem)}
+.leave p{margin:8px 0 0;color:var(--on-dark);font-size:1.05rem;max-width:560px}
+.leave::before{content:"";position:absolute;width:240px;height:80px;background:var(--accent);right:-90px;top:-34px;clip-path:polygon(0 0,100% 0,50% 100%);opacity:.9}
+@media (min-width:900px){.leave::before{width:420px;height:150px;right:auto;left:-160px;top:-60px}}
+
+/* faq */
+.faq{background:var(--bone)}
+.faq-wrap{display:grid;grid-template-columns:1fr;gap:16px;align-items:start}
+.faq-list details{background:#fff;border:1px solid var(--line);border-radius:20px;margin-bottom:12px;transition:border-color .2s,box-shadow .2s}
+.faq-list details[open]{border-color:var(--ink);box-shadow:0 14px 30px -22px rgba(28,26,23,.6)}
+.faq-list summary{list-style:none;cursor:pointer;padding:18px 62px 18px 22px;font-weight:700;font-size:1.06rem;position:relative;min-height:56px;display:flex;align-items:center;border-radius:20px}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary::after{content:"";position:absolute;right:18px;top:50%;width:30px;height:30px;margin-top:-15px;border-radius:50%;background:var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231c1a17' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M12 6v12M6 12h12'/%3E%3C/svg%3E") center/16px no-repeat;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.faq-list details[open] summary::after{transform:rotate(45deg)}
+.faq-list summary:focus-visible{outline-offset:-3px}
+.faq-list details p{padding:0 22px 20px;margin:0;color:var(--muted);font-size:1rem}
+@media (min-width:900px){.faq-wrap{grid-template-columns:.8fr 1.2fr;gap:56px}}
+
+/* contact */
+.contact{background:var(--ink);color:#fff}
+.contact .eyebrow{background:rgba(253,233,58,.14);color:var(--accent)}
+.contact .split{align-items:start}
+.contact-rows{list-style:none;padding:0;margin:24px 0}
+.contact-rows li{display:flex;gap:14px;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:1.02rem;line-height:1.4}
+.contact-rows .ic{width:42px;height:42px;border-radius:50%;background:rgba(253,233,58,.14);color:var(--accent);display:grid;place-items:center;flex:none}
+.contact-rows .ic svg{width:20px;height:20px}
+.contact-rows a{color:#fff;text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+.contact-rows a:hover{text-decoration:underline;text-underline-offset:3px}
+.contact-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;gap:14px}
+.contact-card h3{margin:0 0 2px;font-size:1.6rem}
+.contact-card p{color:var(--on-dark);margin:0 0 6px}
+.contact-card .btn{min-height:62px;font-size:1.08rem;width:100%}
+.socials{display:flex;gap:10px}
+.socials a{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.1);color:#fff;transition:background .2s,color .2s,transform .3s cubic-bezier(.34,1.56,.64,1)}
+.socials a:hover{background:var(--accent);color:var(--ink);transform:translateY(-3px) rotate(-6deg)}
+.socials svg{width:20px;height:20px}
+@media (min-width:600px){.contact-card{padding:34px}}
+
+/* map */
+.map{padding:0 0 72px;background:var(--ink)}
+.map iframe{width:100%;height:320px;border:0;border-radius:var(--r);display:block}
+@media (min-width:760px){.map iframe{height:420px}}
+
+/* footer */
+.footer{background:var(--ink-2);color:#b9b2a5;padding:40px 0;font-size:1rem}
+.footer .wrap{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+.footer .logo img{width:180px}
+.footer a{color:#ece6da;text-decoration:none}
+.footer a:hover{color:var(--accent)}
+.footer-links{display:flex;flex-wrap:wrap;gap:4px 8px}
+.footer-links a{display:inline-flex;align-items:center;min-height:44px;padding:0 8px}
+.footer-copy{width:100%;border-top:1px solid rgba(255,255,255,.1);padding-top:20px;font-size:.95rem}
+
+@media (min-width:600px){section{padding:88px 0}.stats,.map,.strip{padding-bottom:88px}}
+
+/* pop-in reveals (only while JS runs) */
+.js .pop{opacity:0;transform:translateY(28px) scale(.95);transition:opacity .6s ease,transform .8s cubic-bezier(.34,1.56,.64,1);transition-delay:var(--d,0s)}
+.js .pop.in{opacity:1;transform:none}
+.js .svc.pop.in{transition:opacity .6s ease var(--d,0s),transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .35s}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  .js .pop{opacity:1;transform:none}
+  .hero-media img{transform:none}
+}
+</style>
 </head>
 <body>
 
-  <nav id="navbar">
-    <a href="#" class="nav-logo">A Streak <span>A Head</span></a>
-    <div class="nav-links">
-      <a href="#about">About</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18M9 15l2 2 4-4"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"/></symbol>
+  <symbol id="i-quote" viewBox="0 0 24 24" fill="currentColor"><path d="M3 21c3 0 7-1 7-8V5H3v7h4c0 3-1.5 5-4 5v4zm11 0c3 0 7-1 7-8V5h-7v7h4c0 3-1.5 5-4 5v4z"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-scissors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></symbol>
+  <symbol id="i-streak" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3c-1 5 1 8 0 13s-2 5 0 5M12 3c-1 5 1 8 0 13s-2 5 0 5M17 3c-1 5 1 8 0 13s-2 5 0 5"/><path d="M15.5 9.5c1-.2 2 .3 2.4 1.2" stroke-width="2.6"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M15.5 14 17 22l-5-3-5 3 1.5-8"/><path d="M10 9h4M12 7v4"/></symbol>
+  <symbol id="i-pump" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h5M11.5 2v4M14 4h3"/><rect x="9" y="6" width="5" height="3" rx="1"/><path d="M8 9h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"/><path d="M9 14h5"/></symbol>
+  <symbol id="i-tube" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10l-1 15H8z"/><path d="M9.5 18h5v3h-5zM8 8h8"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7S5.5 9.6 5.5 14.5a6.5 6.5 0 0 0 13 0C18.5 9.6 12 2.7 12 2.7z"/><path d="M9 15a3 3 0 0 0 3 3"/></symbol>
+  <symbol id="i-shower" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V7a4 4 0 0 1 4-4h1a4 4 0 0 1 4 4"/><path d="M9 7h8"/><path d="M10 11v.5M13 11v.5M16 11v.5M10 15v.5M13 15v.5M16 15v.5M10 19v.5M13 19v.5M16 19v.5"/></symbol>
+  <symbol id="i-curl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-5 0-8-3.4-8-7.6C4 9.1 7.3 6 11 6c3.2 0 5.5 2.4 5.5 5.3 0 2.5-1.9 4.4-4.3 4.4-2 0-3.5-1.5-3.5-3.3 0-1.5 1.2-2.7 2.7-2.7"/><path d="M14 3c3.6.8 6 3.8 6 7.6"/></symbol>
+  <symbol id="i-refill" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 0 0-14.3-4.9L4 8"/><path d="M4 3v5h5"/><path d="M4 13a8 8 0 0 0 14.3 4.9L20 16"/><path d="M20 21v-5h-5"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24" fill="currentColor"><path d="M14 8.5V6.8c0-.8.2-1.3 1.4-1.3H17V2.2c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.5V12h2.8v10H14V12h2.8l.4-3.5z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-tt" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 2h-3.4v13.4a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6 0 .9.1V9.1a6.3 6.3 0 1 0 5.4 6.3V8.6a8 8 0 0 0 4.6 1.5V6.7a4.7 4.7 0 0 1-4.6-4.7z"/></symbol>
+  <symbol id="wave-path" viewBox="0 0 1440 56" preserveAspectRatio="none"><path d="M0 28 C 180 56 360 0 540 28 S 900 56 1080 28 S 1260 0 1440 28 V56 H0 Z"/></symbol>
+  <clipPath id="cp-part"><rect x="0" y="0" width="15.8" height="24"/></clipPath>
+  <symbol id="i-star-part" viewBox="0 0 24 24"><path fill="currentColor" opacity=".3" d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"/><path fill="currentColor" clip-path="url(#cp-part)" d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"/></symbol>
+</svg>
+
+<!-- 1. NAV -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="A Streak A Head, back to top"><img class="logo-img" src="img/logo-dark.png" alt="A Streak A Head" width="1706" height="342"></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="btn btn-soft nav-call" href="tel:+6432182787" aria-label="Call 03 218 2787"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span class="label">03 218 2787</span></a>
+      <a class="btn btn-dark" href="https://apps.kitomba.com/bookings/astreakahead" target="_blank" rel="noopener">Book now</a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- 2. HERO -->
+<section class="hero" aria-label="Introduction">
+  <div class="hero-media" id="heroSlides">
+    <img class="active" src="img/hero-icy-blonde-1920.webp" srcset="img/hero-icy-blonde-1080.webp 813w, img/hero-icy-blonde-1920.webp 1444w, img/hero-icy-blonde-3840.webp 2889w" sizes="(min-width: 1000px) 60vw, 100vw" width="1444" height="1920" alt="" fetchpriority="high">
+    <img src="img/hero-caramel-waves-1920.webp" srcset="img/hero-caramel-waves-1080.webp 810w, img/hero-caramel-waves-1920.webp 1440w, img/hero-caramel-waves-3840.webp 2880w" sizes="(min-width: 1000px) 60vw, 100vw" width="1440" height="1920" alt="" loading="lazy">
+    <img src="img/hero-lived-in-1920.webp" srcset="img/hero-lived-in-1080.webp 810w, img/hero-lived-in-1920.webp 1440w, img/hero-lived-in-3840.webp 2880w" sizes="(min-width: 1000px) 60vw, 100vw" width="1440" height="1920" alt="" loading="lazy">
+  </div>
+  <div class="slide-dots" id="dots" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="eyebrow"><span class="dot" aria-hidden="true"></span>Hair salon · Gladstone, Invercargill</span>
+      <h1><em>Blonde work<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 15 C 60 4 140 3 197 10" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/></svg></em>, colour and cuts in Gladstone, Invercargill</h1>
+      <p class="lead">Three stylists at 448B Dee Street, doing Invercargill's hair since 1996. Book online any time, or give us a ring.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary wiggle" href="https://apps.kitomba.com/bookings/astreakahead" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-cal"/></svg>Book online now</a>
+        <a class="btn btn-outline-light" href="tel:+6432182787"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call 03 218 2787</a>
+      </div>
+      <a class="rating" href="https://www.google.com/maps/place/A+Streak+A+Head/@-46.3936141,168.3469307,17z/data=!4m8!3m7!1s0xa9d2c4a819510af3:0x86666b0c55dc4a33!8m2!3d-46.3936141!4d168.3469307!9m1!1b1!16s%2Fg%2F1wj_vh_d" target="_blank" rel="noopener" aria-label="Rated 4.7 out of 5 from 29 Google reviews. Read them on Google.">
+        <strong>4.7</strong>
+        <span><span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star-part"/></svg></span><br>from 29 Google reviews</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="wave" aria-hidden="true" style="background:var(--ink);color:var(--bone)">
+  <svg class="back" viewBox="0 0 2880 56" preserveAspectRatio="none" fill="currentColor"><use href="#wave-path" width="1440" height="56"/><use href="#wave-path" x="1440" width="1440" height="56"/></svg>
+  <svg viewBox="0 0 2880 56" preserveAspectRatio="none" fill="currentColor"><use href="#wave-path" width="1440" height="56"/><use href="#wave-path" x="1440" width="1440" height="56"/></svg>
+</div>
+
+<!-- 3. TRUST STRIP -->
+<section class="trust" aria-label="Why locals choose us">
+  <div class="wrap trust-grid">
+    <div class="trust-item pop"><div class="ic"><svg class="icon" aria-hidden="true"><use href="#i-award"/></svg></div><div><strong>Open since 1996</strong><span>Leanne opened the doors in January 1996. Thirty years on, she's still behind the chair.</span></div></div>
+    <div class="trust-item pop" style="--d:.1s"><div class="ic"><svg class="icon" aria-hidden="true"><use href="#i-streak"/></svg></div><div><strong>Blonde is our signature</strong><span>Streaks, foils and balayage, blended so the regrowth comes through soft.</span></div></div>
+    <div class="trust-item pop" style="--d:.2s"><div class="ic"><svg class="icon" aria-hidden="true"><use href="#i-cal"/></svg></div><div><strong>Book online any time</strong><span>Pick your stylist and a time that suits on Kitomba, day or night.</span></div></div>
+  </div>
+</section>
+
+<!-- 4. SERVICES -->
+<section id="services" class="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Services</span>
+      <h2>Colour, cuts and blonde work for the whole family</h2>
+      <p>Book any of these online through Kitomba, or give us a ring if you're not sure what to ask for.</p>
+    </div>
+    <div class="bento">
+      <article class="svc big pop tilt">
+        <div class="img"><img src="img/svc-blonde-1920.webp" srcset="img/svc-blonde-1080.webp 810w, img/svc-blonde-1920.webp 1440w" sizes="(min-width: 1040px) 600px, 100vw" width="1440" height="1920" alt="Long blonde balayage waves, finished in the salon" loading="lazy"></div>
+        <div class="body"><span class="tag">Our signature</span><h3>Blonde Work</h3><p>Our signature service. All things blonde, including streaks, highlights and balayage on scalp, blended to grow out beautifully.</p></div>
+      </article>
+      <article class="svc pop tilt" style="--d:.08s">
+        <div class="img"><img src="img/svc-global-colour-1920.webp" srcset="img/svc-global-colour-1080.webp 813w, img/svc-global-colour-1920.webp 1445w" sizes="(min-width: 1040px) 290px, (min-width: 640px) 50vw, 100vw" width="1445" height="1920" alt="Sleek, glossy rich brunette colour" loading="lazy"></div>
+        <div class="body"><h3>Global &amp; Regrowth Colours</h3><p>From rich all-over global colour to regrowth touch-ups that keep your colour looking fresh between visits.</p></div>
+      </article>
+      <article class="svc pop tilt" style="--d:.16s">
+        <div class="img"><img src="img/svc-cuts-1920.webp" srcset="img/svc-cuts-1080.webp 813w, img/svc-cuts-1920.webp 1445w" sizes="(min-width: 1040px) 290px, (min-width: 640px) 50vw, 100vw" width="1445" height="1920" alt="Layered, shaggy silver cut by Leanne" loading="lazy"></div>
+        <div class="body"><h3>Cuts &amp; Styling</h3><p>Ladies', men's and kids' cuts, from a tidy trim to a big chop. Darlene is the one to see for short styles.</p></div>
+      </article>
+      <article class="svc pop tilt" style="--d:.24s">
+        <div class="img"><img src="img/fresh-perm-curls-1920.webp" srcset="img/fresh-perm-curls-1080.webp 810w, img/fresh-perm-curls-1920.webp 1440w" sizes="(min-width: 1040px) 290px, (min-width: 640px) 50vw, 100vw" width="1440" height="1920" alt="Fresh perm with tight, defined curls" loading="lazy"></div>
+        <div class="body"><h3>Perms &amp; Straightening</h3><p>Perms and chemical straightening, including Argila, a non permanent hair relaxer for smoother, easier-to-manage hair.</p></div>
+      </article>
+      <article class="svc pop tilt" style="--d:.32s">
+        <div class="img"><img src="img/smoothing-in-progress-1920.webp" srcset="img/smoothing-in-progress-1080.webp 810w, img/smoothing-in-progress-1920.webp 1440w" sizes="(min-width: 1040px) 290px, (min-width: 640px) 50vw, 100vw" width="1440" height="1920" alt="A smoothing treatment in progress at the salon" loading="lazy"></div>
+        <div class="body"><h3>Treatments</h3><p>Add a treatment to your cut or colour to bring softness and shine back to dry or coloured hair. Ask your stylist which one suits.</p></div>
+      </article>
+      <article class="svc wide pop tilt" style="--d:.08s">
+        <div class="img"><img src="img/svc-bridal-1920.webp" srcset="img/svc-bridal-1080.webp 810w, img/svc-bridal-1920.webp 1440w" sizes="(min-width: 640px) 280px, 100vw" width="1440" height="1920" alt="Braided wedding updo with veil, back view" loading="lazy"></div>
+        <div class="body"><h3>Bridal &amp; Special Occasions</h3><p>Updos, braids and curls for weddings, school balls and big nights out. Let us know when you book so we can plan your time.</p></div>
+      </article>
+      <article class="svc wide pop tilt" style="--d:.16s">
+        <div class="img"><img src="img/svc-blow-wave-1920.webp" srcset="img/svc-blow-wave-1080.webp 813w, img/svc-blow-wave-1920.webp 1445w" sizes="(min-width: 640px) 280px, 100vw" width="1445" height="1920" alt="Soft blonde waves after a blow-wave" loading="lazy"></div>
+        <div class="body"><h3>Blowouts &amp; Finishing</h3><p>A wash and blow-wave for smooth, bouncy hair, or a finish before a night out. Book a blow-wave on its own or add one to your colour.</p></div>
+      </article>
+      <article class="svc accent pop" style="--d:.1s">
+        <div class="body">
+          <div><h3>Know what you're after?</h3><p>Choose your stylist and time on Kitomba. Not sure? Ring the salon and we'll point you to the right booking.</p></div>
+          <div class="row">
+            <a class="btn btn-primary" href="https://apps.kitomba.com/bookings/astreakahead" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-cal"/></svg>Book online</a>
+            <a class="btn btn-outline-light" href="tel:+6432182787"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>03 218 2787</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" aria-label="At a glance">
+  <div class="wrap">
+    <div class="stats-grid pop">
+      <div class="stat"><b data-count="30">30</b><span>Years since Leanne opened the doors</span></div>
+      <div class="stat"><b data-count="3">3</b><span>Stylists: Leanne, Katie and Darlene</span></div>
+      <div class="stat"><b data-count="4.7" data-decimals="1">4.7</b><span>Google rating from 29 reviews</span></div>
+      <div class="stat"><b data-count="5">5</b><span>Haircare ranges on our shelves</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="wave" aria-hidden="true" style="background:var(--bg);color:var(--bone)">
+  <svg class="back" viewBox="0 0 2880 56" preserveAspectRatio="none" fill="currentColor"><use href="#wave-path" width="1440" height="56"/><use href="#wave-path" x="1440" width="1440" height="56"/></svg>
+  <svg viewBox="0 0 2880 56" preserveAspectRatio="none" fill="currentColor"><use href="#wave-path" width="1440" height="56"/><use href="#wave-path" x="1440" width="1440" height="56"/></svg>
+</div>
+
+<!-- GALLERY (client extra) -->
+<section id="gallery" class="gallery">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">Gallery</span>
+      <h2>Fresh out of the chair</h2>
+      <p>Real results from real clients at A Streak A Head.</p>
+    </div>
+    <div class="masonry">
+      <figure class="pop"><img src="img/blonde-balayage-waves-1920.webp" srcset="img/blonde-balayage-waves-1080.webp 810w, img/blonde-balayage-waves-1920.webp 1440w" sizes="(min-width: 1100px) 290px, (min-width: 760px) 33vw, 50vw" width="1440" height="1920" alt="Soft blonde balayage with loose waves, done in the salon" loading="lazy"></figure>
+      <figure class="pop"><img src="img/long-balayage-back-1920.webp" srcset="img/long-balayage-back-1080.webp 810w, img/long-balayage-back-1920.webp 1440w" sizes="(min-width: 1100px) 290px, (min-width: 760px) 33vw, 50vw" width="1440" height="1920" alt="Long bronde balayage with waves, back view" loading="lazy"></figure>
+      <figure class="pop"><img src="img/gallery-violet-1920.webp" srcset="img/gallery-violet-1080.webp 810w, img/gallery-violet-1920.webp 1440w" sizes="(min-width: 1100px) 290px, (min-width: 760px) 33vw, 50vw" width="1440" height="1920" alt="Pastel violet colour on a wavy bob, by Katie" loading="lazy"></figure>
+      <figure class="pop"><img src="img/blonde-balayage-length-1920.webp" srcset="img/blonde-balayage-length-1080.webp 810w, img/blonde-balayage-length-1920.webp 1440w" sizes="(min-width: 1100px) 290px, (min-width: 760px) 33vw, 50vw" width="1440" height="1920" alt="Blonde balayage through long lengths" loading="lazy"></figure>
+      <figure class="pop"><img src="img/fresh-perm-curls-1920.webp" srcset="img/fresh-perm-curls-1080.webp 810w, img/fresh-perm-curls-1920.webp 1440w" sizes="(min-width: 1100px) 290px, (min-width: 760px) 33vw, 50vw" width="1440" height="1920" alt="Fresh perm with defined curls" loading="lazy"></figure>
+      <figure class="pop"><img src="img/gallery-blonde-bob-1920.webp" srcset="img/gallery-blonde-bob-1080.webp 813w, img/gallery-blonde-bob-1920.webp 1445w" sizes="(min-width: 1100px) 290px, (min-width: 760px) 33vw, 50vw" width="1445" height="1920" alt="Sleek blonde bob with a fringe after a colour correction" loading="lazy"></figure>
+      <figure class="pop"><img src="img/platinum-pixie-cut-1920.webp" srcset="img/platinum-pixie-cut-1080.webp 810w, img/platinum-pixie-cut-1920.webp 1440w" sizes="(min-width: 1100px) 290px, (min-width: 760px) 33vw, 50vw" width="1440" height="1920" alt="Platinum pixie cut, styled in the salon" loading="lazy"></figure>
+      <figure class="pop"><img src="img/gallery-back-to-roots-1920.webp" srcset="img/gallery-back-to-roots-1080.webp 810w, img/gallery-back-to-roots-1920.webp 1440w" sizes="(min-width: 1100px) 290px, (min-width: 760px) 33vw, 50vw" width="1440" height="1920" alt="Warm caramel brunette colour with soft waves" loading="lazy"></figure>
+      <figure class="pop"><img src="img/white-crop-style-1920.webp" srcset="img/white-crop-style-1080.webp 810w, img/white-crop-style-1920.webp 1440w" sizes="(min-width: 1100px) 290px, (min-width: 760px) 33vw, 50vw" width="1440" height="1920" alt="Short white hair cut and styled" loading="lazy"></figure>
+      <figure class="pop"><img src="img/gallery-blonde-bug-1920.webp" srcset="img/gallery-blonde-bug-1080.webp 813w, img/gallery-blonde-bug-1920.webp 1445w" sizes="(min-width: 1100px) 290px, (min-width: 760px) 33vw, 50vw" width="1445" height="1920" alt="Bright blonde waves on a happy client" loading="lazy"></figure>
+      <figure class="pop"><img src="img/silver-short-style-1920.webp" srcset="img/silver-short-style-1080.webp 810w, img/silver-short-style-1920.webp 1440w" sizes="(min-width: 1100px) 290px, (min-width: 760px) 33vw, 50vw" width="1440" height="1920" alt="Silver short style, side profile" loading="lazy"></figure>
+      <figure class="pop"><img src="img/smoothing-in-progress-1920.webp" srcset="img/smoothing-in-progress-1080.webp 810w, img/smoothing-in-progress-1920.webp 1440w" sizes="(min-width: 1100px) 290px, (min-width: 760px) 33vw, 50vw" width="1440" height="1920" alt="Smoothing service in progress at the salon" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 4b. VIDEOS -->
+<section id="videos" class="videos">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">Videos</span>
+      <h2>See us at work</h2>
+      <p>A couple of short clips from the salon's Facebook page.</p>
+    </div>
+    <div class="vid-row">
+      <div class="vid pop">
+        <div class="vid-frame" data-video="https://www.facebook.com/reel/1974873793377420" data-title="Copper colour reveal by Katie">
+          <img src="img/video-copper-cover.webp" width="720" height="1280" alt="" data-img-role="small" loading="lazy">
+          <button class="vid-play" type="button" aria-label="Play video: copper colour reveal by Katie"><span class="pb"><svg aria-hidden="true"><use href="#i-play"/></svg></span></button>
+        </div>
+        <p><strong>Copper reveal.</strong> Before and after a copper colour by Katie.</p>
+      </div>
+      <div class="vid pop" style="--d:.1s">
+        <div class="vid-frame" data-video="https://www.facebook.com/reel/783865457916860" data-title="Some fun in the salon">
+          <img src="img/video-salon-cover.webp" width="720" height="1280" alt="" data-img-role="small" loading="lazy">
+          <button class="vid-play" type="button" aria-label="Play video: some fun in the salon"><span class="pb"><svg aria-hidden="true"><use href="#i-play"/></svg></span></button>
+        </div>
+        <p><strong>Inside the salon.</strong> A bit of fun on the floor at Dee Street.</p>
+      </div>
+    </div>
+    <div class="more-link"><a class="btn btn-soft" href="https://www.facebook.com/astreakahead/videos" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-fb"/></svg>More videos on Facebook</a></div>
+  </div>
+</section>
+
+<div class="wave" aria-hidden="true" style="background:var(--bg);color:var(--bone)">
+  <svg class="back" viewBox="0 0 2880 56" preserveAspectRatio="none" fill="currentColor"><use href="#wave-path" width="1440" height="56"/><use href="#wave-path" x="1440" width="1440" height="56"/></svg>
+  <svg viewBox="0 0 2880 56" preserveAspectRatio="none" fill="currentColor"><use href="#wave-path" width="1440" height="56"/><use href="#wave-path" x="1440" width="1440" height="56"/></svg>
+</div>
+
+<!-- PRODUCTS (client extra) -->
+<section id="products" class="products">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">In the Salon</span>
+      <h2>Products We Love &amp; Stock in Salon</h2>
+      <p>Salon-quality haircare you can take home, available right here in the salon.</p>
+    </div>
+    <div class="prod-grid">
+      <div class="prod pop"><div class="ic"><svg class="icon" aria-hidden="true"><use href="#i-pump"/></svg></div><div><h3>De Lorenzo</h3><p>The full De Lorenzo range.</p></div></div>
+      <div class="prod pop" style="--d:.06s"><div class="ic"><svg class="icon" aria-hidden="true"><use href="#i-tube"/></svg></div><div><h3>Pastel Collective</h3><p>The Pastel Collective range.</p></div></div>
+      <div class="prod pop" style="--d:.12s"><div class="ic"><svg class="icon" aria-hidden="true"><use href="#i-drop"/></svg></div><div><h3>I.N.O Repair</h3><p>The I.N.O repair range.</p></div></div>
+      <div class="prod pop" style="--d:.18s"><div class="ic"><svg class="icon" aria-hidden="true"><use href="#i-shower"/></svg></div><div><h3>Filter Beauty</h3><p>Filter Beauty shower filters.</p></div></div>
+      <div class="prod pop" style="--d:.24s"><div class="ic"><svg class="icon" aria-hidden="true"><use href="#i-curl"/></svg></div><div><h3>Clever Curl</h3><p>The Clever Curl range.</p></div></div>
+    </div>
+    <div class="refill pop"><span><span class="ic"><svg aria-hidden="true"><use href="#i-refill"/></svg></span>Bottle refills available with 15% off</span></div>
+  </div>
+</section>
+
+<!-- PHOTO STRIP: the shelves -->
+<section class="strip" aria-label="Photos of the products on our shelves">
+  <div class="strip-track">
+    <img src="img/strip-shelves.webp" width="960" height="1200" data-img-role="small" alt="Haircare stocked on the salon's retail shelves" loading="lazy">
+    <img src="img/strip-clever-curl.webp" width="1200" height="1102" data-img-role="small" alt="Clever Curl refill containers: cleanser, rich conditioner and curl cream" loading="lazy">
+    <img src="img/strip-pastel.webp" width="832" height="1200" data-img-role="small" alt="Pastel Collective bottles on a white wall shelf" loading="lazy">
+    <img src="img/strip-de-lorenzo.webp" width="843" height="1120" data-img-role="small" alt="De Lorenzo bottles lined up on the salon shelf" loading="lazy">
+    <img src="img/strip-filtered-beauty.webp" width="900" height="1200" data-img-role="small" alt="Filtered Beauty shower filter and box" loading="lazy">
+    <img src="img/strip-shelves.webp" width="960" height="1200" data-img-role="small" alt="" aria-hidden="true" loading="lazy">
+    <img src="img/strip-clever-curl.webp" width="1200" height="1102" data-img-role="small" alt="" aria-hidden="true" loading="lazy">
+    <img src="img/strip-pastel.webp" width="832" height="1200" data-img-role="small" alt="" aria-hidden="true" loading="lazy">
+    <img src="img/strip-de-lorenzo.webp" width="843" height="1120" data-img-role="small" alt="" aria-hidden="true" loading="lazy">
+    <img src="img/strip-filtered-beauty.webp" width="900" height="1200" data-img-role="small" alt="" aria-hidden="true" loading="lazy">
+  </div>
+</section>
+
+<div class="wave" aria-hidden="true" style="background:var(--bone);color:var(--bg)">
+  <svg class="back" viewBox="0 0 2880 56" preserveAspectRatio="none" fill="currentColor"><use href="#wave-path" width="1440" height="56"/><use href="#wave-path" x="1440" width="1440" height="56"/></svg>
+  <svg viewBox="0 0 2880 56" preserveAspectRatio="none" fill="currentColor"><use href="#wave-path" width="1440" height="56"/><use href="#wave-path" x="1440" width="1440" height="56"/></svg>
+</div>
+
+<!-- 5. ABOUT -->
+<section id="about" class="about">
+  <div class="wrap split">
+    <div class="collage pop">
+      <img class="c1" src="img/about-30-years.webp" width="1204" height="1600" data-img-role="small" alt="Leanne Cameron in the salon with gold 30 balloons for its 30th birthday" loading="lazy">
+      <img class="c2" src="img/about-leanne-katie.webp" width="1200" height="1600" data-img-role="small" alt="Leanne Cameron and her daughter Katie Cameron in the salon" loading="lazy">
+      <img class="c3" src="img/about-sign.webp" width="1204" height="1600" data-img-role="small" alt="The A Streak A Head salon sign on Dee Street" loading="lazy">
+      <div class="corner-tag">Since 1996</div>
+    </div>
+    <div class="pop" style="--d:.1s">
+      <span class="eyebrow">About us</span>
+      <h2>Doing Invercargill's hair since 1996</h2>
+      <p>Leanne Cameron opened the doors to A Streak A Head on 29 January 1996, and the salon turned 30 this year. Today it's three stylists in the Gladstone Shopping Centre at 448B Dee Street: Leanne, her daughter Katie, and Darlene, who has been with the salon for more than 25 years.</p>
+      <p>Blonde work is what we're known for, alongside global colour, cuts for the whole family, perms and Argila smoothing. When you're done, you can take home De Lorenzo, Pastel Collective, Clever Curl and more from our shelves.</p>
+      <ul class="checklist">
+        <li><span class="ck"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Locally owned and run by Leanne since 1996</li>
+        <li><span class="ck"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Every stylist bookable online through Kitomba</li>
+        <li><span class="ck"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Salon haircare to take home, with 15% off refills</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="wave" aria-hidden="true" style="background:var(--bg);color:var(--bone)">
+  <svg class="back" viewBox="0 0 2880 56" preserveAspectRatio="none" fill="currentColor"><use href="#wave-path" width="1440" height="56"/><use href="#wave-path" x="1440" width="1440" height="56"/></svg>
+  <svg viewBox="0 0 2880 56" preserveAspectRatio="none" fill="currentColor"><use href="#wave-path" width="1440" height="56"/><use href="#wave-path" x="1440" width="1440" height="56"/></svg>
+</div>
+
+<!-- 6. TEAM -->
+<section id="team" class="team">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">The team</span>
+      <h2>Meet your stylists</h2>
+      <p>All three are on the Kitomba booking page, so you can book in with the stylist you know.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card pop"><div class="avatar">LC</div><span class="role">Owner</span><h3>Leanne Cameron</h3><p>Opened the salon in 1996. The one to see when you want a total revamp, with decades of styles behind her.</p></div>
+      <div class="team-card pop" style="--d:.1s"><div class="avatar">KC</div><span class="role">Stylist</span><h3>Katie Cameron</h3><p>Leanne's daughter, fully qualified in 2024. Your go-to for blonde work and colour of all sorts.</p></div>
+      <div class="team-card pop" style="--d:.2s"><div class="avatar">DM</div><span class="role">Senior stylist</span><h3>Darlene Mackenzie</h3><p>With the salon for more than 25 years. Darlene is the one to book for short haircuts.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="wave" aria-hidden="true" style="background:var(--bone);color:var(--bg)">
+  <svg class="back" viewBox="0 0 2880 56" preserveAspectRatio="none" fill="currentColor"><use href="#wave-path" width="1440" height="56"/><use href="#wave-path" x="1440" width="1440" height="56"/></svg>
+  <svg viewBox="0 0 2880 56" preserveAspectRatio="none" fill="currentColor"><use href="#wave-path" width="1440" height="56"/><use href="#wave-path" x="1440" width="1440" height="56"/></svg>
+</div>
+
+<!-- 7. GOOGLE REVIEWS (real) -->
+<section id="reviews" class="reviews">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">Google reviews</span>
+      <h2>What our clients say on Google</h2>
+      <div class="rev-summary"><strong>4.7</strong><span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star-part"/></svg></span><span>from 29 Google reviews</span></div>
+    </div>
+    <div class="reviews-grid">
+      <figure class="review pop"><svg class="quote" aria-hidden="true"><use href="#i-quote"/></svg><div class="stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div><blockquote>"Thank you Katie..you made me feel from drab to fab! You understood exactly what I needed.So helpful and professional..and you listened..will definitely be back."</blockquote><footer><span class="mini" aria-hidden="true">DP</span><div><strong>Debbie Parker</strong>Google review · 2 years ago</div></footer></figure>
+      <figure class="review pop" style="--d:.1s"><svg class="quote" aria-hidden="true"><use href="#i-quote"/></svg><div class="stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div><blockquote>"Awesum hair cuts and especially 4 children i sat down and he was in a wee car and had a ipad with games and so did the hair dresser and boy was so engrossed he didnt realize it had finished well worth a visit"</blockquote><footer><span class="mini" aria-hidden="true">DG</span><div><strong>Davidjohnbruce. Gray</strong>Google review · 6 years ago</div></footer></figure>
+      <figure class="review pop" style="--d:.2s"><svg class="quote" aria-hidden="true"><use href="#i-quote"/></svg><div class="stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div><blockquote>"Great service from the staff. Go there every haircut."</blockquote><footer><span class="mini" aria-hidden="true">NC</span><div><strong>neta cook</strong>Google review · a year ago</div></footer></figure>
+    </div>
+    <div class="center-cta"><a class="btn btn-soft" href="https://www.google.com/maps/place/A+Streak+A+Head/@-46.3936141,168.3469307,17z/data=!4m8!3m7!1s0xa9d2c4a819510af3:0x86666b0c55dc4a33!8m2!3d-46.3936141!4d168.3469307!9m1!1b1!16s%2Fg%2F1wj_vh_d" target="_blank" rel="noopener">See all our Google reviews<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+  </div>
+</section>
+
+<!-- 8. LEAVE A REVIEW -->
+<section class="leave" aria-label="Leave a review">
+  <div class="wrap">
+    <div class="pop"><h2>Happy with your hair? Leave us a review</h2><p>It takes a minute on Google and helps other locals find the salon.</p></div>
+    <a class="btn btn-primary pop" style="--d:.1s" href="https://search.google.com/local/writereview?placeid=ChIJ8wpRGajE0qkRM0rcVQxrZoY" target="_blank" rel="noopener">Leave a Google review</a>
+  </div>
+</section>
+
+<!-- 9. FAQ -->
+<section id="faq" class="faq">
+  <div class="wrap faq-wrap">
+    <div class="section-head pop">
+      <span class="eyebrow">FAQ</span>
+      <h2>Questions we get asked</h2>
+      <p>Can't see yours? Give us a ring on <a href="tel:+6432182787">03 218 2787</a> or flick us an email from the contact section below.</p>
+    </div>
+    <div class="faq-list">
+      <details class="pop"><summary>How do I book an appointment?</summary><p>Book online any time through our Kitomba booking page, where you can pick your stylist, service and time. You can also call the salon on 03 218 2787 during opening hours.</p></details>
+      <details class="pop" style="--d:.05s"><summary>When are you open?</summary><p>Tuesday to Thursday 9am to 8pm, Friday 9am to 5pm and Saturday 9am to 1pm. We're closed on Sundays and Mondays.</p></details>
+      <details class="pop" style="--d:.1s"><summary>Do you cut kids' and men's hair?</summary><p>Yes. Our booking page has children's cuts for ages 0 to 10 and 11 to 16, plus men's cuts and clipper cuts.</p></details>
+      <details class="pop" style="--d:.15s"><summary>What is Argila smoothing?</summary><p>Argila is a non permanent hair relaxer that leaves hair smoother and easier to manage. Mention it when you book or give us a call, and we'll talk you through whether it suits your hair.</p></details>
+      <details class="pop" style="--d:.2s"><summary>Can I refill my product bottles?</summary><p>Yes. Bring your empty bottle back to the salon and get 15% off the refill. We keep refill containers of Clever Curl cleanser, rich conditioner and curl cream.</p></details>
+      <details class="pop" style="--d:.25s"><summary>Do you sell gift vouchers?</summary><p>Yes. You can buy a gift voucher online through our Kitomba booking page, or ask about one next time you're in.</p></details>
+    </div>
+  </div>
+</section>
+
+<div class="wave" aria-hidden="true" style="background:var(--bone);color:var(--ink)">
+  <svg class="back" viewBox="0 0 2880 56" preserveAspectRatio="none" fill="currentColor"><use href="#wave-path" width="1440" height="56"/><use href="#wave-path" x="1440" width="1440" height="56"/></svg>
+  <svg viewBox="0 0 2880 56" preserveAspectRatio="none" fill="currentColor"><use href="#wave-path" width="1440" height="56"/><use href="#wave-path" x="1440" width="1440" height="56"/></svg>
+</div>
+
+<!-- 10. CONTACT (no form) -->
+<section id="contact" class="contact">
+  <div class="wrap split">
+    <div class="pop">
+      <span class="eyebrow">Contact</span>
+      <h2>Book your next appointment</h2>
+      <p style="color:var(--on-dark)">Book online in seconds, or give us a call or flick us an email.</p>
+      <ul class="contact-rows">
+        <li><span class="ic"><svg aria-hidden="true"><use href="#i-pin"/></svg></span><a href="https://www.google.com/maps/search/?api=1&amp;query=A%20Streak%20A%20Head&amp;query_place_id=ChIJ8wpRGajE0qkRM0rcVQxrZoY" target="_blank" rel="noopener">448B Dee Street, Gladstone, Invercargill</a></li>
+        <li><span class="ic"><svg aria-hidden="true"><use href="#i-phone"/></svg></span><a href="tel:+6432182787">03 218 2787</a></li>
+        <li><span class="ic"><svg aria-hidden="true"><use href="#i-mail"/></svg></span><a href="#" id="emailText" data-gmail data-user="djwcameron001" data-domain="gmail.com" data-su="Appointment%20enquiry" data-body="Hi%20A%20Streak%20A%20Head%2C%0A%0AI%27d%20like%20to%20book%20an%20appointment.%0A%0AName%3A%0AService%3A%0APreferred%20stylist%3A%0APreferred%20days%20and%20times%3A%0A%0AThanks">Email the salon</a></li>
+        <li><span class="ic"><svg aria-hidden="true"><use href="#i-clock"/></svg></span><span>Tue to Thu 9am to 8pm · Fri 9am to 5pm · Sat 9am to 1pm · Closed Sun and Mon</span></li>
+        <li><span class="ic"><svg aria-hidden="true"><use href="#i-cal"/></svg></span><a href="https://apps.kitomba.com/bookings/astreakahead" target="_blank" rel="noopener">Book online now</a></li>
+      </ul>
+      <div class="socials">
+        <a href="https://www.instagram.com/a_streak_a_head_invercargill/" target="_blank" rel="noopener" aria-label="A Streak A Head on Instagram"><svg aria-hidden="true"><use href="#i-ig"/></svg></a>
+        <a href="https://www.facebook.com/astreakahead" target="_blank" rel="noopener" aria-label="A Streak A Head on Facebook"><svg aria-hidden="true"><use href="#i-fb"/></svg></a>
+        <a href="https://www.tiktok.com/search?q=A%20Streak%20A%20Head%20Invercargill" target="_blank" rel="noopener" aria-label="Search for A Streak A Head on TikTok"><svg aria-hidden="true"><use href="#i-tt"/></svg></a>
+      </div>
+    </div>
+    <div class="contact-card pop" style="--d:.1s">
+      <h3>Ready for your next visit?</h3>
+      <p>Book online with your stylist, tap to call the salon, or open a ready-to-send email.</p>
+      <a class="btn btn-primary" href="https://apps.kitomba.com/bookings/astreakahead" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-cal"/></svg>Book online</a>
+      <a class="btn btn-outline-light" href="tel:+6432182787"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call to book</a>
+      <a class="btn btn-outline-light" href="#" data-gmail data-user="djwcameron001" data-domain="gmail.com" data-su="Appointment%20enquiry" data-body="Hi%20A%20Streak%20A%20Head%2C%0A%0AI%27d%20like%20to%20book%20an%20appointment.%0A%0AName%3A%0AService%3A%0APreferred%20stylist%3A%0APreferred%20days%20and%20times%3A%0A%0AThanks"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>Email us to book</a>
+    </div>
+  </div>
+</section>
+
+<!-- 11. MAP -->
+<section class="map" aria-label="Map">
+  <div class="wrap">
+    <iframe title="Map showing A Streak A Head at 448B Dee Street, Gladstone, Invercargill" src="https://www.google.com/maps?q=A+Streak+A+Head,+448B+Dee+Street,+Gladstone,+Invercargill&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</section>
+
+</main>
+
+<!-- 12. FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="A Streak A Head, back to top"><img class="logo-img" src="img/logo-light.png" alt="A Streak A Head" width="1706" height="342" loading="lazy"></a>
+    <nav class="footer-links" aria-label="Footer">
       <a href="#services">Services</a>
       <a href="#gallery">Gallery</a>
       <a href="#products">Products</a>
-      <a href="#reviews">Reviews</a>
-      <a href="https://apps.kitomba.com/bookings/astreakahead" target="_blank" rel="noopener" class="nav-cta">Book Now</a>
+      <a href="https://apps.kitomba.com/bookings/astreakahead" target="_blank" rel="noopener">Book</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="https://search.google.com/local/writereview?placeid=ChIJ8wpRGajE0qkRM0rcVQxrZoY" target="_blank" rel="noopener">Leave a review</a>
+    </nav>
+    <div class="socials">
+      <a href="https://www.instagram.com/a_streak_a_head_invercargill/" target="_blank" rel="noopener" aria-label="A Streak A Head on Instagram"><svg aria-hidden="true"><use href="#i-ig"/></svg></a>
+      <a href="https://www.facebook.com/astreakahead" target="_blank" rel="noopener" aria-label="A Streak A Head on Facebook"><svg aria-hidden="true"><use href="#i-fb"/></svg></a>
+      <a href="https://www.tiktok.com/search?q=A%20Streak%20A%20Head%20Invercargill" target="_blank" rel="noopener" aria-label="Search for A Streak A Head on TikTok"><svg aria-hidden="true"><use href="#i-tt"/></svg></a>
     </div>
-  </nav>
+    <div class="footer-copy">© <span id="year">2026</span> A Streak A Head, 448B Dee Street, Gladstone, Invercargill</div>
+  </div>
+</footer>
 
-  <section class="hero" id="home">
-    <div class="hero-bg"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <div class="hero-tag">Hair Salon · Invercargill</div>
-      <h1>You're <span>One Step</span><br />Ahead</h1>
-      <p>Invercargill's go-to hair salon for cuts, colour, and style that turns heads. At A Streak A Head, we make sure you walk out feeling like the best version of yourself.</p>
-      <div class="hero-actions">
-        <a href="https://apps.kitomba.com/bookings/astreakahead" target="_blank" rel="noopener" class="btn-primary">Book Online Now</a>
-        <a href="#services" class="btn-outline">Our Services</a>
-      </div>
-    </div>
-    <div class="hero-scroll"><div class="scroll-line"></div>Scroll</div>
-  </section>
+<script>
+var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  <section class="about" id="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-img reveal">
-          <img src="img/about-salon-1920.webp" width="1920" height="1282" alt="A Streak A Head hair salon Invercargill" loading="lazy" />
-          <div class="about-badge"><span>4.7★</span>29 Google Reviews</div>
-        </div>
-        <div class="about-text">
-          <span class="section-tag reveal">About Us</span>
-          <h2 class="section-title reveal d1">Invercargill's<br />Favourite Salon</h2>
-          <p class="reveal d2">At A Streak A Head we're passionate about great hair. Our team of experienced stylists stay up-to-date with the latest techniques and trends to deliver results you'll love — every single time.</p>
-          <p class="reveal d2">Whether you're after a fresh cut, a complete colour transformation, or a special occasion blowout, we take the time to understand exactly what you want and make it happen.</p>
-          <div class="about-stats reveal d3">
-            <div class="stat-card"><div class="num">4.7★</div><div class="lbl">Google rating</div></div>
-            <div class="stat-card"><div class="num">29</div><div class="lbl">Happy reviews</div></div>
-            <div class="stat-card"><div class="num">✂️</div><div class="lbl">Expert stylists</div></div>
-            <div class="stat-card"><div class="num">💅</div><div class="lbl">All hair types</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+// Mobile menu
+var burger=document.getElementById('burger'),links=document.getElementById('navLinks');
+function closeMenu(){links.classList.remove('open');burger.setAttribute('aria-expanded','false');burger.setAttribute('aria-label','Open menu');}
+burger.addEventListener('click',function(){var o=links.classList.toggle('open');burger.setAttribute('aria-expanded',o);burger.setAttribute('aria-label',o?'Close menu':'Open menu');});
+links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});
 
-  <section class="services-section" id="services">
-    <div class="container">
-      <div class="services-header">
-        <span class="section-tag reveal">Our Services</span>
-        <h2 class="section-title reveal d1">Everything Your<br />Hair Deserves</h2>
-        <p class="section-sub reveal d2">From everyday cuts to full colour transformations — we do it all, and we do it well.</p>
-      </div>
-      <div class="services-grid">
-        <div class="service-card reveal">
-          <div class="service-icon">✂️</div>
-          <h3>Cuts & Styling</h3>
-          <p>Precision cuts tailored to your face shape, lifestyle, and personality. Walk out with a style that works for you every day.</p>
-        </div>
-        <div class="service-card reveal d1">
-          <div class="service-icon">🎨</div>
-          <h3>Global & Regrowth Colours</h3>
-          <p>From rich all-over global colour to regrowth touch-ups that keep your colour looking fresh between visits.</p>
-        </div>
-        <div class="service-card reveal d2">
-          <div class="service-icon">✨</div>
-          <h3>Blonde Work</h3>
-          <p>Our signature service. All things blonde, including streaks, highlights and balayage on scalp, blended to grow out beautifully.</p>
-        </div>
-        <div class="service-card reveal d3">
-          <div class="service-icon">🌀</div>
-          <h3>Perms & Straightening</h3>
-          <p>Perms and chemical straightening, including Argila, a non permanent hair relaxer for smoother, easier-to-manage hair.</p>
-        </div>
-        <div class="service-card reveal d1">
-          <div class="service-icon">💆</div>
-          <h3>Treatments</h3>
-          <p>Nourishing hair treatments to restore shine, strength, and softness — your hair will thank you.</p>
-        </div>
-        <div class="service-card reveal d2">
-          <div class="service-icon">💍</div>
-          <h3>Bridal & Special Occasions</h3>
-          <p>Look stunning on your big day. We create flawless updos, curls, and styles built to last from ceremony to dance floor.</p>
-        </div>
-        <div class="service-card reveal d3">
-          <div class="service-icon">💨</div>
-          <h3>Blowouts & Finishing</h3>
-          <p>A professional blowout that gives your hair volume, shine, and that fresh-from-the-salon feeling all day long.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+// Nav shadow on scroll
+var nav=document.getElementById('nav');
+addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>10);},{passive:true});
 
-  <section class="gallery-section" id="gallery">
-    <div class="container">
-      <div class="gallery-header">
-        <span class="section-tag reveal">Gallery</span>
-        <h2 class="section-title reveal d1">Our Work Speaks<br />For Itself</h2>
-        <p class="section-sub reveal d2">Real results from real clients at A Streak A Head.</p>
-      </div>
-      <div class="gallery-grid reveal d1">
-        <div class="gallery-item">
-          <img src="img/blonde-balayage-waves-1080.webp" srcset="img/blonde-balayage-waves-1080.webp 810w, img/blonde-balayage-waves-1920.webp 1440w" sizes="(max-width: 768px) 50vw, 25vw" width="810" height="1080" alt="Soft blonde balayage with loose waves, done in the salon" loading="lazy" />
-        </div>
-        <div class="gallery-item">
-          <img src="img/long-balayage-back-1080.webp" srcset="img/long-balayage-back-1080.webp 810w, img/long-balayage-back-1920.webp 1440w" sizes="(max-width: 768px) 50vw, 25vw" width="810" height="1080" alt="Long bronde balayage with waves, back view" loading="lazy" />
-        </div>
-        <div class="gallery-item">
-          <img src="img/blonde-balayage-length-1080.webp" srcset="img/blonde-balayage-length-1080.webp 810w, img/blonde-balayage-length-1920.webp 1440w" sizes="(max-width: 768px) 50vw, 25vw" width="810" height="1080" alt="Blonde balayage through long lengths" loading="lazy" />
-        </div>
-        <div class="gallery-item">
-          <img src="img/fresh-perm-curls-1080.webp" srcset="img/fresh-perm-curls-1080.webp 810w, img/fresh-perm-curls-1920.webp 1440w" sizes="(max-width: 768px) 50vw, 25vw" width="810" height="1080" alt="Fresh perm with defined curls" loading="lazy" />
-        </div>
-        <div class="gallery-item">
-          <img src="img/platinum-pixie-cut-1080.webp" srcset="img/platinum-pixie-cut-1080.webp 810w, img/platinum-pixie-cut-1920.webp 1440w" sizes="(max-width: 768px) 50vw, 25vw" width="810" height="1080" alt="Platinum pixie cut, styled in the salon" loading="lazy" />
-        </div>
-        <div class="gallery-item">
-          <img src="img/white-crop-style-1080.webp" srcset="img/white-crop-style-1080.webp 810w, img/white-crop-style-1920.webp 1440w" sizes="(max-width: 768px) 50vw, 25vw" width="810" height="1080" alt="Short white hair cut and styled" loading="lazy" />
-        </div>
-        <div class="gallery-item">
-          <img src="img/silver-short-style-1080.webp" srcset="img/silver-short-style-1080.webp 810w, img/silver-short-style-1920.webp 1440w" sizes="(max-width: 768px) 50vw, 25vw" width="810" height="1080" alt="Silver short style, side profile" loading="lazy" />
-        </div>
-        <div class="gallery-item">
-          <img src="img/smoothing-in-progress-1080.webp" srcset="img/smoothing-in-progress-1080.webp 810w, img/smoothing-in-progress-1920.webp 1440w" sizes="(max-width: 768px) 50vw, 25vw" width="810" height="1080" alt="Smoothing service in progress at the salon" loading="lazy" />
-        </div>
-      </div>
-    </div>
-  </section>
+// Hero crossfade (static first slide under reduced motion)
+var slides=document.querySelectorAll('#heroSlides img'),dots=document.querySelectorAll('#dots i'),cur=0;
+if(!reduce&&slides.length>1){
+  setInterval(function(){
+    slides[cur].classList.remove('active');dots[cur].classList.remove('on');
+    cur=(cur+1)%slides.length;
+    slides[cur].classList.add('active');dots[cur].classList.add('on');
+  },6000);
+}
 
-  <section class="products-section" id="products">
-    <div class="container">
-      <div class="products-header">
-        <span class="section-tag reveal">In the Salon</span>
-        <h2 class="section-title reveal d1">Products We Love<br />& Stock in Salon</h2>
-        <p class="section-sub reveal d2">Salon-quality haircare you can take home, available right here in the salon.</p>
-      </div>
-      <div class="products-grid">
-        <div class="product-card reveal">
-          <div class="product-icon">🧴</div>
-          <h3>De Lorenzo</h3>
-          <p>The full De Lorenzo range.</p>
-        </div>
-        <div class="product-card reveal d1">
-          <div class="product-icon">🎀</div>
-          <h3>Pastel Collective</h3>
-          <p>The Pastel Collective range.</p>
-        </div>
-        <div class="product-card reveal d2">
-          <div class="product-icon">💧</div>
-          <h3>I.N.O Repair</h3>
-          <p>The I.N.O repair range.</p>
-        </div>
-        <div class="product-card reveal d1">
-          <div class="product-icon">🚿</div>
-          <h3>Filter Beauty</h3>
-          <p>Filter Beauty shower filters.</p>
-        </div>
-        <div class="product-card reveal d2">
-          <div class="product-icon">🌀</div>
-          <h3>Clever Curl</h3>
-          <p>The Clever Curl range.</p>
-        </div>
-      </div>
-      <div class="products-note reveal d3">
-        <span>♻️ Bottle refills available with 15% off</span>
-      </div>
-    </div>
-  </section>
+// Count-up
+function countUp(el){
+  var end=parseFloat(el.getAttribute('data-count')),dec=+(el.getAttribute('data-decimals')||0);
+  if(reduce){el.textContent=end.toFixed(dec);return;}
+  var t0=null,dur=1400;
+  function step(t){if(!t0)t0=t;var p=Math.min((t-t0)/dur,1),e=1-Math.pow(1-p,3);el.textContent=(end*e).toFixed(dec);if(p<1)requestAnimationFrame(step);}
+  el.textContent=(0).toFixed(dec);requestAnimationFrame(step);
+}
 
-  <section class="reviews-section" id="reviews">
-    <div class="container">
-      <div class="reviews-header">
-        <div>
-          <span class="section-tag reveal">Google Reviews</span>
-          <h2 class="section-title reveal d1">Loved by Locals</h2>
-        </div>
-        <div class="reveal d2" style="display:flex;align-items:center;gap:1rem;">
-          <div class="rating-big">4.7</div>
-          <div class="rating-right">
-            <div class="stars">★★★★★</div>
-            <p>29 Google Reviews</p>
-          </div>
-        </div>
-      </div>
-      <div class="reviews-grid">
-        <div class="review-card reveal">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"Absolutely love this salon! Leanne is so talented — she nailed exactly the colour I wanted. The whole experience was relaxed and professional. I won't go anywhere else in Invercargill."</p>
-          <div class="review-author">
-            <div class="review-avatar">SM</div>
-            <div><div class="review-name">Sarah M.</div><div class="review-date">2 weeks ago</div></div>
-          </div>
-        </div>
-        <div class="review-card reveal d1">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"Best balayage I've ever had — and I've been to salons all over the South Island. The team at A Streak A Head are genuinely skilled and the salon has such a great vibe."</p>
-          <div class="review-author">
-            <div class="review-avatar">KT</div>
-            <div><div class="review-name">Kate T.</div><div class="review-date">1 month ago</div></div>
-          </div>
-        </div>
-        <div class="review-card reveal d2">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"Had my hair done here for my wedding and it was perfect. Held all day, looked incredible in photos, and I felt amazing. Couldn't recommend more highly!"</p>
-          <div class="review-author">
-            <div class="review-avatar">JR</div>
-            <div><div class="review-name">Jessica R.</div><div class="review-date">3 weeks ago</div></div>
-          </div>
-        </div>
-      </div>
-      <div class="reviews-cta reveal">
-        <a href="review.html" class="btn-review">⭐ Leave a Review</a>
-      </div>
-    </div>
-  </section>
+// Pop-in reveals
+var pops=document.querySelectorAll('.pop');
+if('IntersectionObserver' in window&&!reduce){
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(!en.isIntersecting)return;
+      en.target.classList.add('in');
+      en.target.querySelectorAll('[data-count]').forEach(countUp);
+      io.unobserve(en.target);
+    });
+  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  pops.forEach(function(p){io.observe(p);});
+}else{
+  pops.forEach(function(p){p.classList.add('in');});
+}
 
-  <section class="contact-section" id="contact">
-    <div class="container">
-      <div class="contact-grid">
-        <div class="contact-info">
-          <span class="section-tag reveal">Book Now</span>
-          <h2 class="section-title reveal d1">Ready for Your<br />Best Hair Day?</h2>
-          <p class="reveal d2">Book online in seconds, or fill in the form and we'll be in touch to confirm your time.</p>
-          <div class="reveal d3">
-            <div class="contact-detail"><div class="contact-detail-icon">📍</div><span>448B Dee Street, Gladstone, Invercargill</span></div>
-            <div class="contact-detail"><div class="contact-detail-icon">📞</div><span>+64 3 218 2787</span></div>
-            <div class="contact-detail"><div class="contact-detail-icon">✉️</div><span>djwcameron001@gmail.com</span></div>
-            <div class="contact-detail"><div class="contact-detail-icon">📅</div><span><a href="https://apps.kitomba.com/bookings/astreakahead" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline;text-underline-offset:3px;">Book online now</a></span></div>
-          </div>
-        </div>
-        <div class="contact-form-wrap reveal d2">
-          <form action="https://api.staticforms.xyz/submit" method="post">
-            <input type="hidden" name="apiKey" value="sf_768da8d33927e7f4f241d0a6" />
-            <div class="form-row">
-              <div class="form-group"><label>First Name</label><input type="text" name="firstName" placeholder="First name" required /></div>
-              <div class="form-group"><label>Last Name</label><input type="text" name="lastName" placeholder="Last name" required /></div>
-            </div>
-            <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="your@email.com" required /></div>
-            <div class="form-group"><label>Phone</label><input type="tel" name="phone" placeholder="Your phone number" /></div>
-            <div class="form-group">
-              <label>Service</label>
-              <select name="service" required>
-                <option value="" disabled selected>What are you after?</option>
-                <option value="cut">Cut & Style</option>
-                <option value="colour">Global & Regrowth Colours</option>
-                <option value="blonde">Blonde Work (Streaks, Highlights & Balayage)</option>
-                <option value="perm">Perm / Chemical Straightening</option>
-                <option value="treatment">Hair Treatment</option>
-                <option value="blowout">Blowout & Finish</option>
-                <option value="bridal">Bridal / Special Occasion</option>
-                <option value="other">Other / Unsure</option>
-              </select>
-            </div>
-            <div class="form-group"><label>Message</label><textarea name="message" placeholder="Any extra details — hair type, length, inspo photos welcome…"></textarea></div>
-            <button type="submit" class="form-submit">Book My Appointment →</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
+// Hover tilt on service cards (mouse only)
+if(!reduce&&window.matchMedia('(hover: hover) and (pointer: fine)').matches){
+  document.querySelectorAll('.tilt').forEach(function(card){
+    card.addEventListener('pointermove',function(e){
+      var r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+      card.style.transform='perspective(900px) translateY(-6px) rotateX('+(-y*5)+'deg) rotateY('+(x*5)+'deg)';
+    });
+    card.addEventListener('pointerleave',function(){card.style.transform='';});
+  });
+}
 
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-logo">A Streak <span>A Head</span></div>
-      <div class="footer-links">
-        <a href="#about">About</a><a href="#services">Services</a><a href="#gallery">Gallery</a><a href="#products">Products</a><a href="https://apps.kitomba.com/bookings/astreakahead" target="_blank" rel="noopener">Book</a>
-      </div>
-      <div class="footer-copy">© 2025 A Streak A Head, 448B Dee Street, Gladstone, Invercargill</div>
-    </div>
-  </footer>
+// Click-to-play Facebook videos (iframe only loads when tapped)
+document.querySelectorAll('.vid-frame').forEach(function(f){
+  f.querySelector('.vid-play').addEventListener('click',function(){
+    var i=document.createElement('iframe');
+    i.src='https://www.facebook.com/plugins/video.php?href='+encodeURIComponent(f.getAttribute('data-video'))+'&show_text=false&width=360';
+    i.title=f.getAttribute('data-title');
+    i.allow='autoplay; encrypted-media; picture-in-picture; web-share';
+    i.setAttribute('allowfullscreen','');
+    f.innerHTML='';f.appendChild(i);
+  });
+});
 
-  <script>
-    const nav=document.getElementById('navbar');
-    window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>60));
-    const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.1});
-    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-  </script>
+// Gmail compose links (address built in JS from split parts so it is never in the HTML)
+document.querySelectorAll('a[data-gmail]').forEach(function(a){var to=a.getAttribute('data-user')+'@'+a.getAttribute('data-domain');a.href='https://mail.google.com/mail/?view=cm&fs=1&to='+encodeURIComponent(to)+'&su='+(a.getAttribute('data-su')||'')+'&body='+(a.getAttribute('data-body')||'');a.target='_blank';a.rel='noopener';});
+var et=document.getElementById('emailText');if(et)et.textContent=et.getAttribute('data-user')+'@'+et.getAttribute('data-domain');
+
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
 </body>
 </html>

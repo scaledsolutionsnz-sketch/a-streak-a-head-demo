@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>A Streak A Head | Hair Salon, Invercargill</title>
-<meta name="description" content="Hair salon at 448B Dee Street, Gladstone, Invercargill. Blonde work, colour, cuts, perms and Argila smoothing since 1996. Book online any time or call 03 218 2787.">
+<meta name="description" content="Hair salon at 448B Dee Street, Gladstone, Invercargill. Cuts, colour, blonde work, perms, treatments and Argila smoothing since 1996. Book online any time or call 03 218 2787.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://a-streak-a-head-demo.vercel.app/">
 <meta property="og:title" content="A Streak A Head | Hair Salon, Invercargill">
-<meta property="og:description" content="Blonde work, colour and cuts at 448B Dee Street, Gladstone, Invercargill. Doing Invercargill's hair since 1996.">
+<meta property="og:description" content="Cuts, colour, perms and treatments at 448B Dee Street, Gladstone, Invercargill. Doing Invercargill's hair since 1996.">
 <meta property="og:image" content="https://a-streak-a-head-demo.vercel.app/img/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -115,8 +115,9 @@ section{padding:72px 0;position:relative;scroll-margin-top:72px}
 .hero .eyebrow{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.22)}
 .hero .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
 .hero h1{font-size:clamp(2.35rem,7.4vw,4.25rem);line-height:1.04;margin-bottom:20px;font-weight:600}
-.hero h1 em{font-style:italic;position:relative;white-space:nowrap}
-.hero h1 em svg{position:absolute;left:-2%;bottom:-.14em;width:104%;height:.34em;color:var(--accent)}
+.hero h1.hero-title{margin:4px 0 18px;line-height:0}
+.hero-title img{display:block;width:min(100%,640px);height:auto;filter:drop-shadow(0 6px 22px rgba(0,0,0,.35))}
+.hero-sub{font-family:var(--display);font-size:clamp(1.3rem,3.4vw,1.85rem);line-height:1.2;font-weight:600;color:#fff;margin-bottom:14px}
 .hero .lead{font-size:clamp(1.06rem,1.8vw,1.22rem);color:#ece7dc;max-width:540px}
 .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 26px}
 .hero-more{display:inline-flex;align-items:center;gap:8px;min-height:52px;padding:0 6px;color:#fff;font-weight:700;text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:6px}
@@ -427,7 +428,8 @@ section{padding:72px 0;position:relative;scroll-margin-top:72px}
   <div class="wrap">
     <div class="hero-copy">
       <span class="eyebrow"><span class="dot" aria-hidden="true"></span>Hair salon · Gladstone, Invercargill</span>
-      <h1><em>Blonde work<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 15 C 60 4 140 3 197 10" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/></svg></em>, colour and cuts in Gladstone, Invercargill</h1>
+      <h1 class="hero-title"><img src="img/logo-light.png" alt="A Streak A Head" width="1706" height="342" fetchpriority="high"></h1>
+      <p class="hero-sub">Cuts, colour, perms and treatments in Gladstone, Invercargill</p>
       <p class="lead">Three stylists at 448B Dee Street, doing Invercargill's hair since 1996. Book online any time, or give us a ring.</p>
       <div class="hero-ctas">
         <a class="btn btn-primary wiggle" href="https://apps.kitomba.com/bookings/astreakahead" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-cal"/></svg>Book online now</a>
@@ -467,7 +469,7 @@ section{padding:72px 0;position:relative;scroll-margin-top:72px}
     <div class="bento">
       <article class="svc big pop tilt">
         <div class="img"><img src="img/svc-blonde-1920.webp" srcset="img/svc-blonde-1080.webp 810w, img/svc-blonde-1920.webp 1440w" sizes="(min-width: 1040px) 600px, 100vw" width="1440" height="1920" alt="Long blonde balayage waves, finished in the salon" loading="lazy"></div>
-        <div class="body"><span class="tag">Our signature</span><h3>Blonde Work</h3><p>Our signature service. All things blonde, including streaks, highlights and balayage on scalp, blended to grow out beautifully.</p></div>
+        <div class="body"><h3>Blonde Work</h3><p>All things blonde, including streaks, highlights and balayage on scalp, blended to grow out beautifully.</p></div>
       </article>
       <article class="svc pop tilt" style="--d:.08s">
         <div class="img"><img src="img/svc-global-colour-1920.webp" srcset="img/svc-global-colour-1080.webp 813w, img/svc-global-colour-1920.webp 1445w" sizes="(min-width: 1040px) 290px, (min-width: 640px) 50vw, 100vw" width="1445" height="1920" alt="Sleek, glossy rich brunette colour" loading="lazy"></div>
@@ -482,7 +484,7 @@ section{padding:72px 0;position:relative;scroll-margin-top:72px}
         <div class="body"><h3>Perms &amp; Straightening</h3><p>Perms and chemical straightening, including Argila, a non permanent hair relaxer for smoother, easier-to-manage hair.</p></div>
       </article>
       <article class="svc pop tilt" style="--d:.32s">
-        <div class="img"><img src="img/perm-curls-back-1920.webp" srcset="img/perm-curls-back-1080.webp 810w, img/perm-curls-back-1920.webp 1440w" sizes="(min-width: 1040px) 290px, (min-width: 640px) 50vw, 100vw" width="1440" height="1920" alt="Long dark hair with a fresh, tight perm, back view, in the salon" loading="lazy"></div>
+        <div class="img"><img src="img/treatment-sleek-blonde-1920.webp" srcset="img/treatment-sleek-blonde-1080.webp 810w, img/treatment-sleek-blonde-1920.webp 1440w" sizes="(min-width: 1040px) 290px, (min-width: 640px) 50vw, 100vw" width="1440" height="1920" alt="Sleek, shiny straight blonde hair after a treatment, in the salon" loading="lazy"></div>
         <div class="body"><h3>Treatments</h3><p>Add a treatment to your cut or colour to bring softness and shine back to dry or coloured hair. Ask your stylist which one suits.</p></div>
       </article>
       <article class="svc wide pop tilt" style="--d:.08s">
@@ -627,7 +629,7 @@ section{padding:72px 0;position:relative;scroll-margin-top:72px}
       <span class="eyebrow">About us</span>
       <h2>Doing Invercargill's hair since 1996</h2>
       <p>Leanne Cameron opened the doors to A Streak A Head on 29 January 1996, and the salon turned 30 this year. Today it's three stylists in the Gladstone Shopping Centre at 448B Dee Street: Leanne, her daughter Katie, and Darlene, who has been with the salon for more than 25 years.</p>
-      <p>Blonde work is what we're known for, alongside global colour, cuts for the whole family, perms and Argila smoothing. When you're done, you can take home De Lorenzo, Pastel Collective, Clever Curl and more from our shelves.</p>
+      <p>We love doing every kind of hair: global colour, blonde work, cuts for the whole family, perms, treatments and Argila smoothing. When you're done, you can take home De Lorenzo, Pastel Collective, Clever Curl and more from our shelves.</p>
       <ul class="checklist">
         <li><span class="ck"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Locally owned and run by Leanne since 1996</li>
         <li><span class="ck"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Every stylist bookable online through Kitomba</li>
